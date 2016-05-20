@@ -1,0 +1,27 @@
+PODS:
+  - CocoaLumberjack/Core (2.3.0)
+  - CocoaLumberjack/Default (2.3.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.3.0):
+    - CocoaLumberjack/Default
+  - CocoaLumberjack/Swift (2.3.0):
+    - CocoaLumberjack/Extensions
+  - EAIntroView (2.8.3):
+    - EARestrictedScrollView (~> 1.1.0)
+  - EARestrictedScrollView (1.1.0)
+  - SwiftyUserDefaults (2.2.0)
+
+DEPENDENCIES:
+  - CocoaLumberjack/Swift
+  - EAIntroView (~> 2.8.0)
+  - SwiftyUserDefaults
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
+  EAIntroView: e948c83e642f30010d427e643c18a6f2b529afed
+  EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
+  SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
+
+PODFILE CHECKSUM: d4d88cbb44442a2cf2cb4ee61ea14d48996f2717
+
+COCOAPODS: 1.0.0
