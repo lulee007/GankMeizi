@@ -11,6 +11,7 @@
 		6B9D1003578FCEAC2B562C03 /* Pods_GankMeizi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E857479A6B8A5DC69C003B /* Pods_GankMeizi.framework */; };
 		8010F1F266E3F265194BBCF1 /* Pods_GankMeiziUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C346628FD39877009FA9D9D /* Pods_GankMeiziUITests.framework */; };
 		A420B8DF1CEEB6F20089C22A /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A420B8DD1CEEB6F20089C22A /* AppIcon@2x.png */; };
+		A42383CC1CEEE27000CC9C1D /* GankIOService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383CB1CEEE27000CC9C1D /* GankIOService.swift */; };
 		A458DB131CEDD3D200563998 /* LoggerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458DB121CEDD3D200563998 /* LoggerUtil.swift */; };
 		A458DB191CEEAFF000563998 /* SplashTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A458DB181CEEAFF000563998 /* SplashTitle@2x.png */; };
 		A46939191CE9FD88004A896A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46939181CE9FD88004A896A /* AppDelegate.swift */; };
@@ -20,18 +21,6 @@
 		A46939231CE9FD88004A896A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A46939211CE9FD88004A896A /* LaunchScreen.storyboard */; };
 		A469392E1CE9FD88004A896A /* GankMeiziTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A469392D1CE9FD88004A896A /* GankMeiziTests.swift */; };
 		A46939391CE9FD88004A896A /* GankMeiziUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46939381CE9FD88004A896A /* GankMeiziUITests.swift */; };
-		A46939491CEA037A004A896A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46939461CEA037A004A896A /* Alamofire.framework */; };
-		A469394A1CEA037A004A896A /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46939471CEA037A004A896A /* AlamofireImage.framework */; };
-		A469394B1CEA037A004A896A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46939481CEA037A004A896A /* SwiftyJSON.framework */; };
-		A46939511CEA0469004A896A /* Alamofire.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = A469394E1CEA0469004A896A /* Alamofire.framework.dSYM */; };
-		A46939521CEA0469004A896A /* AlamofireImage.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = A469394F1CEA0469004A896A /* AlamofireImage.framework.dSYM */; };
-		A46939531CEA0469004A896A /* SwiftyJSON.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = A46939501CEA0469004A896A /* SwiftyJSON.framework.dSYM */; };
-		A46939721CEB4C71004A896A /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A469396F1CEB4C71004A896A /* RxBlocking.framework */; };
-		A46939731CEB4C71004A896A /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46939701CEB4C71004A896A /* RxCocoa.framework */; };
-		A46939741CEB4C71004A896A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46939711CEB4C71004A896A /* RxSwift.framework */; };
-		A469397E1CEB4CB6004A896A /* RxBlocking.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = A469397B1CEB4CB6004A896A /* RxBlocking.framework.dSYM */; };
-		A469397F1CEB4CB6004A896A /* RxCocoa.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = A469397C1CEB4CB6004A896A /* RxCocoa.framework.dSYM */; };
-		A46939801CEB4CB6004A896A /* RxSwift.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = A469397D1CEB4CB6004A896A /* RxSwift.framework.dSYM */; };
 		A469398B1CEDA32D004A896A /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A469398A1CEDA32D004A896A /* Splash.storyboard */; };
 		A469398D1CEDA5DB004A896A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A469398C1CEDA5DB004A896A /* SplashViewController.swift */; };
 		A46939901CEDA70B004A896A /* ControllerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A469398F1CEDA70B004A896A /* ControllerUtil.swift */; };
@@ -62,12 +51,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				A469397E1CEB4CB6004A896A /* RxBlocking.framework.dSYM in CopyFiles */,
-				A469397F1CEB4CB6004A896A /* RxCocoa.framework.dSYM in CopyFiles */,
-				A46939801CEB4CB6004A896A /* RxSwift.framework.dSYM in CopyFiles */,
-				A46939511CEA0469004A896A /* Alamofire.framework.dSYM in CopyFiles */,
-				A46939521CEA0469004A896A /* AlamofireImage.framework.dSYM in CopyFiles */,
-				A46939531CEA0469004A896A /* SwiftyJSON.framework.dSYM in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +65,7 @@
 		93CF6F47F674554845C46BCD /* Pods-GankMeizi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GankMeizi.release.xcconfig"; path = "Pods/Target Support Files/Pods-GankMeizi/Pods-GankMeizi.release.xcconfig"; sourceTree = "<group>"; };
 		A286EA5F704E02E502006E28 /* Pods-GankMeiziUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GankMeiziUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GankMeiziUITests/Pods-GankMeiziUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A420B8DD1CEEB6F20089C22A /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		A42383CB1CEEE27000CC9C1D /* GankIOService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankIOService.swift; sourceTree = "<group>"; };
 		A458DB121CEDD3D200563998 /* LoggerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerUtil.swift; sourceTree = "<group>"; };
 		A458DB181CEEAFF000563998 /* SplashTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SplashTitle@2x.png"; sourceTree = "<group>"; };
 		A46939151CE9FD88004A896A /* 干货集中营.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "干货集中营.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,18 +81,6 @@
 		A46939341CE9FD88004A896A /* GankMeiziUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GankMeiziUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A46939381CE9FD88004A896A /* GankMeiziUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GankMeiziUITests.swift; sourceTree = "<group>"; };
 		A469393A1CE9FD88004A896A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A46939461CEA037A004A896A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		A46939471CEA037A004A896A /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
-		A46939481CEA037A004A896A /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		A469394E1CEA0469004A896A /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Alamofire.framework.dSYM; path = Carthage/Build/iOS/Alamofire.framework.dSYM; sourceTree = "<group>"; };
-		A469394F1CEA0469004A896A /* AlamofireImage.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = AlamofireImage.framework.dSYM; path = Carthage/Build/iOS/AlamofireImage.framework.dSYM; sourceTree = "<group>"; };
-		A46939501CEA0469004A896A /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
-		A469396F1CEB4C71004A896A /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		A46939701CEB4C71004A896A /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		A46939711CEB4C71004A896A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		A469397B1CEB4CB6004A896A /* RxBlocking.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxBlocking.framework.dSYM; path = Carthage/Build/iOS/RxBlocking.framework.dSYM; sourceTree = "<group>"; };
-		A469397C1CEB4CB6004A896A /* RxCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxCocoa.framework.dSYM; path = Carthage/Build/iOS/RxCocoa.framework.dSYM; sourceTree = "<group>"; };
-		A469397D1CEB4CB6004A896A /* RxSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxSwift.framework.dSYM; path = Carthage/Build/iOS/RxSwift.framework.dSYM; sourceTree = "<group>"; };
 		A469398A1CEDA32D004A896A /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		A469398C1CEDA5DB004A896A /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		A469398F1CEDA70B004A896A /* ControllerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerUtil.swift; sourceTree = "<group>"; };
@@ -122,12 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A46939721CEB4C71004A896A /* RxBlocking.framework in Frameworks */,
-				A46939731CEB4C71004A896A /* RxCocoa.framework in Frameworks */,
-				A46939741CEB4C71004A896A /* RxSwift.framework in Frameworks */,
-				A46939491CEA037A004A896A /* Alamofire.framework in Frameworks */,
-				A469394A1CEA037A004A896A /* AlamofireImage.framework in Frameworks */,
-				A469394B1CEA037A004A896A /* SwiftyJSON.framework in Frameworks */,
 				6B9D1003578FCEAC2B562C03 /* Pods_GankMeizi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,12 +120,6 @@
 		47F7631A9E738CD1ADB06CFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A46939461CEA037A004A896A /* Alamofire.framework */,
-				A46939471CEA037A004A896A /* AlamofireImage.framework */,
-				A46939481CEA037A004A896A /* SwiftyJSON.framework */,
-				A469396F1CEB4C71004A896A /* RxBlocking.framework */,
-				A46939701CEB4C71004A896A /* RxCocoa.framework */,
-				A46939711CEB4C71004A896A /* RxSwift.framework */,
 				47E857479A6B8A5DC69C003B /* Pods_GankMeizi.framework */,
 				B5D0B2CFA5CA3AC7CBA26CF5 /* Pods_GankMeiziTests.framework */,
 				3C346628FD39877009FA9D9D /* Pods_GankMeiziUITests.framework */,
@@ -202,6 +162,7 @@
 				A469391F1CE9FD88004A896A /* Assets.xcassets */,
 				A46939211CE9FD88004A896A /* LaunchScreen.storyboard */,
 				A46939241CE9FD88004A896A /* Info.plist */,
+				A42383CB1CEEE27000CC9C1D /* GankIOService.swift */,
 			);
 			path = GankMeizi;
 			sourceTree = "<group>";
@@ -236,12 +197,6 @@
 		A46939821CECB1DF004A896A /* dSYM */ = {
 			isa = PBXGroup;
 			children = (
-				A469397B1CEB4CB6004A896A /* RxBlocking.framework.dSYM */,
-				A469397C1CEB4CB6004A896A /* RxCocoa.framework.dSYM */,
-				A469397D1CEB4CB6004A896A /* RxSwift.framework.dSYM */,
-				A469394E1CEA0469004A896A /* Alamofire.framework.dSYM */,
-				A469394F1CEA0469004A896A /* AlamofireImage.framework.dSYM */,
-				A46939501CEA0469004A896A /* SwiftyJSON.framework.dSYM */,
 			);
 			name = dSYM;
 			sourceTree = "<group>";
@@ -297,7 +252,6 @@
 				A46939111CE9FD88004A896A /* Sources */,
 				A46939121CE9FD88004A896A /* Frameworks */,
 				A46939131CE9FD88004A896A /* Resources */,
-				A469394C1CEA0393004A896A /* ShellScript */,
 				A469394D1CEA0431004A896A /* CopyFiles */,
 				52730A0F8C7DA6374684BFC2 /* 📦 Embed Pods Frameworks */,
 				CA6B7B75E96CD9EC911B449E /* 📦 Copy Pods Resources */,
@@ -471,25 +425,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GankMeiziTests/Pods-GankMeiziTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A469394C1CEA0393004A896A /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 		A98668866A823F10F5E461D8 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -576,6 +511,7 @@
 				A469391B1CE9FD88004A896A /* MainViewController.swift in Sources */,
 				A46939191CE9FD88004A896A /* AppDelegate.swift in Sources */,
 				A458DB131CEDD3D200563998 /* LoggerUtil.swift in Sources */,
+				A42383CC1CEEE27000CC9C1D /* GankIOService.swift in Sources */,
 				A46939921CEDB866004A896A /* UserDefaultsUtil.swift in Sources */,
 				A46939901CEDA70B004A896A /* ControllerUtil.swift in Sources */,
 			);

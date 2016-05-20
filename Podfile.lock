@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (3.4.0)
   - CocoaLumberjack/Core (2.3.0)
   - CocoaLumberjack/Default (2.3.0):
     - CocoaLumberjack/Core
@@ -9,19 +10,35 @@ PODS:
   - EAIntroView (2.8.3):
     - EARestrictedScrollView (~> 1.1.0)
   - EARestrictedScrollView (1.1.0)
+  - Moya (6.4.0):
+    - Moya/Core (= 6.4.0)
+  - Moya/Core (6.4.0):
+    - Alamofire (~> 3.0)
+    - Result (~> 2.0)
+  - Moya/RxSwift (6.4.0):
+    - Moya/Core
+    - RxSwift (~> 2.0)
+  - Result (2.0.0)
+  - RxSwift (2.5.0)
   - SwiftyUserDefaults (2.2.0)
 
 DEPENDENCIES:
   - CocoaLumberjack/Swift
   - EAIntroView (~> 2.8.0)
+  - Moya
+  - Moya/RxSwift
   - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   EAIntroView: e948c83e642f30010d427e643c18a6f2b529afed
   EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
+  Moya: 4d526954c8afd79820991393d40d7d8af756ceee
+  Result: 9e75e1111c774c6ac594e14907b15057053a7959
+  RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
   SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
 
-PODFILE CHECKSUM: d4d88cbb44442a2cf2cb4ee61ea14d48996f2717
+PODFILE CHECKSUM: badcb566eb251216d22b52d1d093107074d03f96
 
 COCOAPODS: 1.0.0

@@ -7,6 +7,9 @@ target 'GankMeizi' do
   pod 'EAIntroView', '~> 2.8.0'
   pod 'SwiftyUserDefaults'
   pod 'CocoaLumberjack/Swift'
+  pod 'Moya'
+  pod 'Moya/RxSwift'
+  pod 'SwiftyUserDefaults'
 
   # Pods for GankMeizi
 
