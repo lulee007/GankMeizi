@@ -58,17 +58,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Defaults[.launchCount] += 1
         DDLogDebug("当前启动次数：\(launchCount+1)")
         var toShowViewController: UIViewController
-        if launchCount < 1 {
+        if launchCount < 1000 {
             toShowViewController = ControllerUtil.loadViewControllerWithName("SplashView", sbName: "Splash")
             DDLogDebug("加载Welcome")
+            self.window?.rootViewController = toShowViewController
         }else{
             toShowViewController = ControllerUtil.loadViewControllerWithName("MainView", sbName: "Main")
             DDLogDebug("加载Main")
+            setupRootVCWithNC(toShowViewController)
         }
-
-        self.window?.rootViewController = toShowViewController
+        
         self.window?.makeKeyAndVisible()
         
+    }
+    
+    func setupRootVCWithNC(rootVC:UIViewController)  {
+        let navigationController = UINavigationController.init(rootViewController: rootVC)
+        self.window?.rootViewController = navigationController
     }
     
     

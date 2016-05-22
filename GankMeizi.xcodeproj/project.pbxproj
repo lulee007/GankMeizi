@@ -12,6 +12,13 @@
 		8010F1F266E3F265194BBCF1 /* Pods_GankMeiziUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C346628FD39877009FA9D9D /* Pods_GankMeiziUITests.framework */; };
 		A420B8DF1CEEB6F20089C22A /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A420B8DD1CEEB6F20089C22A /* AppIcon@2x.png */; };
 		A42383CC1CEEE27000CC9C1D /* GankIOService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383CB1CEEE27000CC9C1D /* GankIOService.swift */; };
+		A42383D01CEEF17700CC9C1D /* GankIOAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383CF1CEEF17700CC9C1D /* GankIOAPI.swift */; };
+		A42383D31CEF273900CC9C1D /* ArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383D21CEF273900CC9C1D /* ArticleEntity.swift */; };
+		A42383D51CEF2AEC00CC9C1D /* BaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383D41CEF2AEC00CC9C1D /* BaseEntity.swift */; };
+		A42383D71CEF39D000CC9C1D /* DailyArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383D61CEF39D000CC9C1D /* DailyArticleEntity.swift */; };
+		A42383D91CEF4DD200CC9C1D /* HtmlArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383D81CEF4DD200CC9C1D /* HtmlArticleEntity.swift */; };
+		A42383E01CF1E09400CC9C1D /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383DE1CF1E09400CC9C1D /* ArticleCollectionViewCell.swift */; };
+		A42383E11CF1E09400CC9C1D /* ArticleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A42383DF1CF1E09400CC9C1D /* ArticleCollectionViewCell.xib */; };
 		A458DB131CEDD3D200563998 /* LoggerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A458DB121CEDD3D200563998 /* LoggerUtil.swift */; };
 		A458DB191CEEAFF000563998 /* SplashTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A458DB181CEEAFF000563998 /* SplashTitle@2x.png */; };
 		A46939191CE9FD88004A896A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46939181CE9FD88004A896A /* AppDelegate.swift */; };
@@ -66,6 +73,13 @@
 		A286EA5F704E02E502006E28 /* Pods-GankMeiziUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GankMeiziUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GankMeiziUITests/Pods-GankMeiziUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A420B8DD1CEEB6F20089C22A /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
 		A42383CB1CEEE27000CC9C1D /* GankIOService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankIOService.swift; sourceTree = "<group>"; };
+		A42383CF1CEEF17700CC9C1D /* GankIOAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankIOAPI.swift; sourceTree = "<group>"; };
+		A42383D21CEF273900CC9C1D /* ArticleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleEntity.swift; sourceTree = "<group>"; };
+		A42383D41CEF2AEC00CC9C1D /* BaseEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEntity.swift; sourceTree = "<group>"; };
+		A42383D61CEF39D000CC9C1D /* DailyArticleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyArticleEntity.swift; sourceTree = "<group>"; };
+		A42383D81CEF4DD200CC9C1D /* HtmlArticleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlArticleEntity.swift; sourceTree = "<group>"; };
+		A42383DE1CF1E09400CC9C1D /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
+		A42383DF1CF1E09400CC9C1D /* ArticleCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleCollectionViewCell.xib; sourceTree = "<group>"; };
 		A458DB121CEDD3D200563998 /* LoggerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerUtil.swift; sourceTree = "<group>"; };
 		A458DB181CEEAFF000563998 /* SplashTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SplashTitle@2x.png"; sourceTree = "<group>"; };
 		A46939151CE9FD88004A896A /* 干货集中营.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "干货集中营.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +141,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A42383D11CEF270800CC9C1D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A42383D21CEF273900CC9C1D /* ArticleEntity.swift */,
+				A42383D41CEF2AEC00CC9C1D /* BaseEntity.swift */,
+				A42383D61CEF39D000CC9C1D /* DailyArticleEntity.swift */,
+				A42383D81CEF4DD200CC9C1D /* HtmlArticleEntity.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A469390C1CE9FD88004A896A = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +178,7 @@
 		A46939171CE9FD88004A896A /* GankMeizi */ = {
 			isa = PBXGroup;
 			children = (
+				A42383D11CEF270800CC9C1D /* Models */,
 				A469398E1CEDA6E3004A896A /* Utils */,
 				A46939841CED9E7D004A896A /* Resources */,
 				A46939811CEC9FEC004A896A /* Splash */,
@@ -163,6 +189,9 @@
 				A46939211CE9FD88004A896A /* LaunchScreen.storyboard */,
 				A46939241CE9FD88004A896A /* Info.plist */,
 				A42383CB1CEEE27000CC9C1D /* GankIOService.swift */,
+				A42383CF1CEEF17700CC9C1D /* GankIOAPI.swift */,
+				A42383DE1CF1E09400CC9C1D /* ArticleCollectionViewCell.swift */,
+				A42383DF1CF1E09400CC9C1D /* ArticleCollectionViewCell.xib */,
 			);
 			path = GankMeizi;
 			sourceTree = "<group>";
@@ -355,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A420B8DF1CEEB6F20089C22A /* AppIcon@2x.png in Resources */,
+				A42383E11CF1E09400CC9C1D /* ArticleCollectionViewCell.xib in Resources */,
 				A46939231CE9FD88004A896A /* LaunchScreen.storyboard in Resources */,
 				A469398B1CEDA32D004A896A /* Splash.storyboard in Resources */,
 				A46939201CE9FD88004A896A /* Assets.xcassets in Resources */,
@@ -507,11 +537,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A42383E01CF1E09400CC9C1D /* ArticleCollectionViewCell.swift in Sources */,
+				A42383D91CEF4DD200CC9C1D /* HtmlArticleEntity.swift in Sources */,
 				A469398D1CEDA5DB004A896A /* SplashViewController.swift in Sources */,
 				A469391B1CE9FD88004A896A /* MainViewController.swift in Sources */,
+				A42383D31CEF273900CC9C1D /* ArticleEntity.swift in Sources */,
 				A46939191CE9FD88004A896A /* AppDelegate.swift in Sources */,
+				A42383D51CEF2AEC00CC9C1D /* BaseEntity.swift in Sources */,
 				A458DB131CEDD3D200563998 /* LoggerUtil.swift in Sources */,
 				A42383CC1CEEE27000CC9C1D /* GankIOService.swift in Sources */,
+				A42383D01CEEF17700CC9C1D /* GankIOAPI.swift in Sources */,
+				A42383D71CEF39D000CC9C1D /* DailyArticleEntity.swift in Sources */,
 				A46939921CEDB866004A896A /* UserDefaultsUtil.swift in Sources */,
 				A46939901CEDA70B004A896A /* ControllerUtil.swift in Sources */,
 			);
