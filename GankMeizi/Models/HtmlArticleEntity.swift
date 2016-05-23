@@ -10,9 +10,11 @@ import Foundation
 import ObjectMapper
 
 class HtmlArticleEntity: Mappable {
+    let DATE_FORMATTER = "yyyy-MM-dd'T'HH:mm:sssZ"
+
     var _id: String?
     var content: String?
-    var publishedAt: String?
+    var publishedAt: NSDate?
     var title: String?
     
     required init?(_ map: Map) {
@@ -23,7 +25,7 @@ class HtmlArticleEntity: Mappable {
     
         _id         <-  map["_id"]
         content     <-  map["content"]
-        publishedAt <-  map["publishAt"]
+        publishedAt <-  (map["publishAt"],CustomDateFormatTransform(formatString: DATE_FORMATTER))
         title       <-  map["title"]
     }
     

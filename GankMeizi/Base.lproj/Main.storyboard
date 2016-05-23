@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -18,8 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oTy-He-0Zk">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
-                                <color key="backgroundColor" red="0.0" green="0.49019607840000001" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nMF-EH-qva">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -29,12 +30,12 @@
                                 <cells/>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.49019607840000001" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oTy-He-0Zk" secondAttribute="bottom" id="Pdb-7s-0ud"/>
+                            <constraint firstItem="oTy-He-0Zk" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Pdb-7s-0ud"/>
                             <constraint firstAttribute="trailing" secondItem="oTy-He-0Zk" secondAttribute="trailing" id="X5d-WN-D0n"/>
                             <constraint firstItem="oTy-He-0Zk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aHx-E7-uKe"/>
-                            <constraint firstItem="oTy-He-0Zk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yd1-wU-We7"/>
+                            <constraint firstItem="oTy-He-0Zk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="f1f-Vg-uZL"/>
                         </constraints>
                     </view>
                     <connections>

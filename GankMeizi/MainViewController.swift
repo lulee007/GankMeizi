@@ -7,54 +7,160 @@
 //
 
 import UIKit
+import RxCocoa
 import RxSwift
-//import CHTCollectionViewWaterfallLayout.Swift
+import CHTCollectionViewWaterfallLayout
+import MJRefresh
+import CocoaLumberjack
+import Kingfisher
 
-public class MainViewController: UIViewController {
+extension String {
+    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: CGFloat.max)
+        
+        let boundingBox = self.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        
+        return boundingBox.height
+    }
+}
+class MainViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, CHTCollectionViewDelegateWaterfallLayout {
     
+    let whiteSpace: CGFloat = 10.0
     var needAnim: Bool = true
-    let gankioApi = GankIOAPI()
+    let articleModel = ArticleModel()
+    let disposeBag = DisposeBag()
     
     @IBOutlet weak var articleCollectionView: UICollectionView!
     
-    override public func viewDidLoad() {
+    override  func viewDidLoad() {
         super.viewDidLoad()
         self.title = "干货集中营"
         // 1、设置导航栏标题属性：设置标题颜色
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         // 2、设置导航栏前景色：设置item指示色
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barTintColor = ThemeUtil.colorWithHexString(ThemeUtil.DARK_PRIMARY_COLOR)
         
-        // 3、设置导航栏半透明
-        self.navigationController?.navigationBar.translucent = true
-        
-        // 4、设置导航栏背景图片
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        
-        // 5、设置导航栏阴影图片
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.articleCollectionView.dataSource = self
-//        self.articleCollectionView.delegate = self
+        self.articleCollectionView.dataSource = self
+        self.articleCollectionView.delegate = self
+        registerNibs()
         setupCollectionView()
+        
     }
     
-    override public func viewDidAppear(animated: Bool) {
+    override  func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         launchAnimation()
-//        gankioApi.getByDay(2016, month: 2, day: 15)
-        gankioApi.getArticleInfoByPage(1, count: 10)
+        
+        //refresh
+        self.articleCollectionView.mj_header.executeRefreshingCallback()
     }
     
-    override public func didReceiveMemoryWarning() {
+    override  func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK： setup uiview
     
     func setupCollectionView()  {
-//        let layout = CHTCollectionViewWaterfallLayout()
+        let layout = CHTCollectionViewWaterfallLayout()
+        
+        layout.minimumColumnSpacing = whiteSpace
+        layout.minimumInteritemSpacing = whiteSpace
+        // 设置外边距
+        layout.sectionInset = UIEdgeInsetsMake(whiteSpace, whiteSpace, whiteSpace, whiteSpace)
+        
+        self.articleCollectionView.alwaysBounceVertical = true
+        self.articleCollectionView.collectionViewLayout = layout
+        
+        //刷新头部
+        self.articleCollectionView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+            self.articleModel.refresh()
+                .observeOn(MainScheduler.instance)
+                .doOnCompleted({
+                    self.articleCollectionView.mj_header.endRefreshing()
+                })
+                .subscribe(onNext: { (entities) in
+                    self.articleCollectionView.mj_footer.resetNoMoreData()
+                    self.articleCollectionView.reloadData()
+                    
+                    }, onError: { (error) in
+                        print(error)
+                    }, onCompleted: {
+                        DDLogDebug("on complated")
+                    }, onDisposed: {
+                        
+                })
+                .addDisposableTo(self.disposeBag)
+            
+        })
+        
+        //加载更多底部
+        let mjFooter = MJRefreshAutoStateFooter.init(refreshingBlock: {
+            self.articleModel.loadMore()
+                .observeOn(MainScheduler.instance)
+                .doOnCompleted({
+                    self.articleCollectionView.mj_footer.endRefreshing()
+                })
+                .subscribe(onNext: { (entities) in
+                    self.articleCollectionView.mj_footer.endRefreshingWithNoMoreData()
+                    self.articleCollectionView.reloadData()
+                    
+                    }, onError: { (error) in
+                        print(error)
+                    }, onCompleted: {
+                        DDLogDebug("on complated")
+                    }, onDisposed: {
+                        
+                })
+                .addDisposableTo(self.disposeBag)
+        })
+        
+        self.articleCollectionView.mj_footer = mjFooter
+        self.articleCollectionView.mj_footer.hidden = true
+        
     }
+    
+    func registerNibs() {
+        let viewNib = UINib(nibName: "ArticleCollectionViewCell", bundle: nil)
+        self.articleCollectionView.registerNib(viewNib, forCellWithReuseIdentifier: "cell")
+    }
+    
+    //MARK: delegate
+    /*   */
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.articleCollectionView.mj_footer.hidden = self.articleModel.articleEntities.count == 0
+        return self.articleModel.articleEntities.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! ArticleCollectionViewCell
+        
+        cell.title.text = self.articleModel.articleEntities[indexPath.item].desc!
+        
+        cell.image.kf_setImageWithURL(NSURL(string: self.articleModel.articleEntities[indexPath.item].url!)!,optionsInfo:[.Transition(ImageTransition.Fade(0.5))])
+        
+        cell.backgroundColor = UIColor.whiteColor()
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let desc = self.articleModel.articleEntities[indexPath.item].desc!
+        
+        let width = (articleCollectionView.bounds.width - whiteSpace * 3) / 2
+        let height = desc.heightWithConstrainedWidth(width, font: UIFont.systemFontOfSize(15))
+        
+        // height = img.height+ text.height + text.paddingTop
+        return CGSize.init(width: width, height: width + height + 10.0)
+    }
+    
+    // MARK: 启动过渡效果
     
     func launchAnimation()  {
         if needAnim {
@@ -74,7 +180,9 @@ public class MainViewController: UIViewController {
         }
     }
     
-    public static func buildController() -> MainViewController{
+    
+    
+    static func buildController() -> MainViewController{
         let controller = ControllerUtil.loadViewControllerWithName("MainView", sbName: "Main") as! MainViewController
         controller.needAnim = false
         return controller

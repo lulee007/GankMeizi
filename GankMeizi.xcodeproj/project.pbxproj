@@ -10,6 +10,10 @@
 		42C33989E62FD240CB432831 /* Pods_GankMeiziTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D0B2CFA5CA3AC7CBA26CF5 /* Pods_GankMeiziTests.framework */; };
 		6B9D1003578FCEAC2B562C03 /* Pods_GankMeizi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47E857479A6B8A5DC69C003B /* Pods_GankMeizi.framework */; };
 		8010F1F266E3F265194BBCF1 /* Pods_GankMeiziUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C346628FD39877009FA9D9D /* Pods_GankMeiziUITests.framework */; };
+		A41318151CF3096C00E2FE93 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41318141CF3096C00E2FE93 /* DateUtil.swift */; };
+		A41318171CF362D400E2FE93 /* ThemeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41318161CF362D400E2FE93 /* ThemeUtil.swift */; };
+		A419E64E1CF2D4C200C7457E /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A419E64D1CF2D4C200C7457E /* ArticleModel.swift */; };
+		A419E6501CF2D54300C7457E /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A419E64F1CF2D54300C7457E /* BaseModel.swift */; };
 		A420B8DF1CEEB6F20089C22A /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A420B8DD1CEEB6F20089C22A /* AppIcon@2x.png */; };
 		A42383CC1CEEE27000CC9C1D /* GankIOService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383CB1CEEE27000CC9C1D /* GankIOService.swift */; };
 		A42383D01CEEF17700CC9C1D /* GankIOAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383CF1CEEF17700CC9C1D /* GankIOAPI.swift */; };
@@ -71,6 +75,10 @@
 		895A1697041395BC2C6998F5 /* Pods-GankMeiziUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GankMeiziUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GankMeiziUITests/Pods-GankMeiziUITests.release.xcconfig"; sourceTree = "<group>"; };
 		93CF6F47F674554845C46BCD /* Pods-GankMeizi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GankMeizi.release.xcconfig"; path = "Pods/Target Support Files/Pods-GankMeizi/Pods-GankMeizi.release.xcconfig"; sourceTree = "<group>"; };
 		A286EA5F704E02E502006E28 /* Pods-GankMeiziUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GankMeiziUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GankMeiziUITests/Pods-GankMeiziUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A41318141CF3096C00E2FE93 /* DateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		A41318161CF362D400E2FE93 /* ThemeUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeUtil.swift; sourceTree = "<group>"; };
+		A419E64D1CF2D4C200C7457E /* ArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
+		A419E64F1CF2D54300C7457E /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		A420B8DD1CEEB6F20089C22A /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
 		A42383CB1CEEE27000CC9C1D /* GankIOService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankIOService.swift; sourceTree = "<group>"; };
 		A42383CF1CEEF17700CC9C1D /* GankIOAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankIOAPI.swift; sourceTree = "<group>"; };
@@ -148,6 +156,8 @@
 				A42383D41CEF2AEC00CC9C1D /* BaseEntity.swift */,
 				A42383D61CEF39D000CC9C1D /* DailyArticleEntity.swift */,
 				A42383D81CEF4DD200CC9C1D /* HtmlArticleEntity.swift */,
+				A419E64D1CF2D4C200C7457E /* ArticleModel.swift */,
+				A419E64F1CF2D54300C7457E /* BaseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -253,6 +263,8 @@
 				A469398F1CEDA70B004A896A /* ControllerUtil.swift */,
 				A46939911CEDB866004A896A /* UserDefaultsUtil.swift */,
 				A458DB121CEDD3D200563998 /* LoggerUtil.swift */,
+				A41318141CF3096C00E2FE93 /* DateUtil.swift */,
+				A41318161CF362D400E2FE93 /* ThemeUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -538,17 +550,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				A42383E01CF1E09400CC9C1D /* ArticleCollectionViewCell.swift in Sources */,
+				A41318171CF362D400E2FE93 /* ThemeUtil.swift in Sources */,
 				A42383D91CEF4DD200CC9C1D /* HtmlArticleEntity.swift in Sources */,
 				A469398D1CEDA5DB004A896A /* SplashViewController.swift in Sources */,
 				A469391B1CE9FD88004A896A /* MainViewController.swift in Sources */,
 				A42383D31CEF273900CC9C1D /* ArticleEntity.swift in Sources */,
+				A41318151CF3096C00E2FE93 /* DateUtil.swift in Sources */,
 				A46939191CE9FD88004A896A /* AppDelegate.swift in Sources */,
 				A42383D51CEF2AEC00CC9C1D /* BaseEntity.swift in Sources */,
 				A458DB131CEDD3D200563998 /* LoggerUtil.swift in Sources */,
 				A42383CC1CEEE27000CC9C1D /* GankIOService.swift in Sources */,
+				A419E6501CF2D54300C7457E /* BaseModel.swift in Sources */,
 				A42383D01CEEF17700CC9C1D /* GankIOAPI.swift in Sources */,
 				A42383D71CEF39D000CC9C1D /* DailyArticleEntity.swift in Sources */,
 				A46939921CEDB866004A896A /* UserDefaultsUtil.swift in Sources */,
+				A419E64E1CF2D4C200C7457E /* ArticleModel.swift in Sources */,
 				A46939901CEDA70B004A896A /* ControllerUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -692,10 +708,7 @@
 			baseConfigurationReference = 7DC26479A11BBEB756C50AD6 /* Pods-GankMeizi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GankMeizi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lulee007.GankMeizi;
@@ -708,10 +721,7 @@
 			baseConfigurationReference = 93CF6F47F674554845C46BCD /* Pods-GankMeizi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GankMeizi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lulee007.GankMeizi;

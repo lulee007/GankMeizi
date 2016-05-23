@@ -10,10 +10,11 @@ import Foundation
 import Moya
 import CocoaLumberjack
 import ObjectMapper
+import RxSwift
 
 class GankIOAPI {
     
-    var gankioProvider: MoyaProvider<GankIOService>
+    var provider: RxMoyaProvider<GankIOService>
     
     /**
      初始化 provider 并添加插件：<p/>
@@ -32,34 +33,38 @@ class GankIOAPI {
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             }
         }
-        self.gankioProvider = MoyaProvider<GankIOService>(plugins: [networkActivityPlugin ,NetworkLoggerPlugin.init()])
+        
+        self.provider = RxMoyaProvider<GankIOService>(plugins: [networkActivityPlugin ,NetworkLoggerPlugin.init()])
         
     }
     
     
-    func getByDay(year: Int, month: Int, day: Int)  {
-        
-        self.gankioProvider.request(.ByDay(year: year, month: month, day: day)) { (result) in
+//    func getByDay(year: Int, month: Int, day: Int)  {
+//        
+//        self.gankioProvider.request(.ByDay(year: year, month: month, day: day)) { (result) in
+//            
+//            if result.error == nil {
+//                let data =  Mapper<DailyArticleEntity>().map(String(data: (result.value?.data)!, encoding: NSUTF8StringEncoding))
+//                
+//                DDLogDebug(Mapper().toJSONString(data!, prettyPrint: true)!)
+//                
+//            }else{
+//                print(result.error)
+//            }
+//        }
+//    }
+    
+    func getArticleInfoByPage(page: Int, count: Int) -> Observable<[HtmlArticleEntity]> {
+        return provider.request(GankIOService.HtmlByPage(page: page, count: count))
+        .debug()
+        .map({ (response) -> [HtmlArticleEntity] in
+            let result = Mapper<BaseEntity<HtmlArticleEntity>>().map(String(data: response.data,encoding:  NSUTF8StringEncoding))
             
-            if result.error == nil {
-                let data =  Mapper<DailyArticleEntity>().map(String(data: (result.value?.data)!, encoding: NSUTF8StringEncoding))
-                
-                DDLogDebug(Mapper().toJSONString(data!, prettyPrint: true)!)
-                
-            }else{
-                print(result.error)
-            }
-        }
+            return (result?.results)!
+        })
+        
+        
     }
     
-    func getArticleInfoByPage(page: Int, count: Int)  {
-        self.gankioProvider.request(.HtmlByPage(page:page,count:count)){ (result) in
-            if result.error == nil {
-                let data = Mapper<BaseEntity<HtmlArticleEntity>>().map(String(data:(result.value?.data)!, encoding: NSUTF8StringEncoding))
-                DDLogDebug(Mapper().toJSONString(data!, prettyPrint: true)!)
-            }else{
-                print(result.error)
-            }
-        }
-    }
+    
 }

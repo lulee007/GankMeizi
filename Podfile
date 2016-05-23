@@ -13,8 +13,10 @@ target 'GankMeizi' do
   pod 'Moya/RxSwift'
   pod 'SwiftyUserDefaults'
   pod 'ObjectMapper', '~> 1.3'
-  pod 'CHTCollectionViewWaterfallLayout/Swift'
+  pod 'CHTCollectionViewWaterfallLayout/Swift', :git => 'git@github.com:chiahsien/CHTCollectionViewWaterfallLayout.git', :branch => 'develop'
   pod 'Kingfisher', '~> 2.4'
+  pod 'MJRefresh'
+  pod 'DZNEmptyDataSet'
 
   # Pods for GankMeizi
 

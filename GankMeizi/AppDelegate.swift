@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Defaults[.launchCount] += 1
         DDLogDebug("当前启动次数：\(launchCount+1)")
         var toShowViewController: UIViewController
-        if launchCount < 1000 {
+        if launchCount < 1 {
             toShowViewController = ControllerUtil.loadViewControllerWithName("SplashView", sbName: "Splash")
             DDLogDebug("加载Welcome")
             self.window?.rootViewController = toShowViewController

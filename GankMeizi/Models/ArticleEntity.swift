@@ -9,12 +9,13 @@ import Foundation
 import ObjectMapper
 
 class ArticleEntity: Mappable {
+    
 	var who: String?
 	var _id: String?
 	var desc: String?
-	var publishedAt: String?
+	var publishedAt: NSDate?
 	var used: Int?
-	var createdAt: String?
+	var createdAt: NSDate?
 	var url: String?
 	var type: String?
 
@@ -29,10 +30,12 @@ class ArticleEntity: Mappable {
 		who <- map["who"]
 		_id <- map["_id"]
 		desc <- map["desc"]
-		publishedAt <- map["publishedAt"]
+		publishedAt <- (map["publishedAt"], CustomDateFormatTransform(formatString: DateUtil.DATE_FORMATTER))
 		used <- map["used"]
-		createdAt <- map["createdAt"]
+		createdAt <- (map["createdAt"],CustomDateFormatTransform(formatString: DateUtil.DATE_FORMATTER))
 		url <- map["url"]
 		type <- map["type"]
 	}
+    
+    
 }

@@ -8,10 +8,12 @@ PODS:
     - CocoaLumberjack/Default
   - CocoaLumberjack/Swift (2.3.0):
     - CocoaLumberjack/Extensions
+  - DZNEmptyDataSet (1.8.1)
   - EAIntroView (2.8.3):
     - EARestrictedScrollView (~> 1.1.0)
   - EARestrictedScrollView (1.1.0)
   - Kingfisher (2.4.1)
+  - MJRefresh (3.1.0)
   - Moya (6.4.0):
     - Moya/Core (= 6.4.0)
   - Moya/Core (6.4.0):
@@ -32,10 +34,12 @@ PODS:
   - SwiftyUserDefaults (2.2.0)
 
 DEPENDENCIES:
-  - CHTCollectionViewWaterfallLayout/Swift
+  - CHTCollectionViewWaterfallLayout/Swift (from `git@github.com:chiahsien/CHTCollectionViewWaterfallLayout.git`, branch `develop`)
   - CocoaLumberjack/Swift
+  - DZNEmptyDataSet
   - EAIntroView (~> 2.8.0)
   - Kingfisher (~> 2.4)
+  - MJRefresh
   - Moya
   - Moya/RxSwift
   - ObjectMapper (~> 1.3)
@@ -45,13 +49,25 @@ DEPENDENCIES:
   - RxTests (~> 2.0)
   - SwiftyUserDefaults
 
+EXTERNAL SOURCES:
+  CHTCollectionViewWaterfallLayout:
+    :branch: develop
+    :git: git@github.com:chiahsien/CHTCollectionViewWaterfallLayout.git
+
+CHECKOUT OPTIONS:
+  CHTCollectionViewWaterfallLayout:
+    :commit: 1964eb0f719a5852b6b71ed8dfa0e72a7597eb99
+    :git: git@github.com:chiahsien/CHTCollectionViewWaterfallLayout.git
+
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   CHTCollectionViewWaterfallLayout: db74be9135826d285f45ff163fd090e57c99fc50
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EAIntroView: e948c83e642f30010d427e643c18a6f2b529afed
   EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
   Kingfisher: 41aed5b6c1ed8fa98cf6d75283ce89cf7890f517
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   Moya: 4d526954c8afd79820991393d40d7d8af756ceee
   ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
   Result: 9e75e1111c774c6ac594e14907b15057053a7959
@@ -61,6 +77,6 @@ SPEC CHECKSUMS:
   RxTests: 1b13bea0a138552b52aeead549ef08d578bcda9e
   SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
 
-PODFILE CHECKSUM: b0dec7594638986e8b1dfda776a5824274aa33b6
+PODFILE CHECKSUM: 87787b7a0f3d7b36cc4fca153222ca2e7e2f5514
 
 COCOAPODS: 1.0.0
