@@ -14,9 +14,12 @@ target 'GankMeizi' do
   pod 'Moya/RxSwift'
   pod 'ObjectMapper', '~> 1.3'
   pod 'CHTCollectionViewWaterfallLayout/Swift', :git => 'git@github.com:chiahsien/CHTCollectionViewWaterfallLayout.git', :branch => 'develop'
-  pod 'Kingfisher', '~> 2.4'
+  # SDWebImage used in MWPhotoBrowser so just replace kf to  SDWebImage
+  # pod 'Kingfisher', '~> 2.4'
+  pod 'SDWebImage', '~>3.7'
   pod 'MJRefresh'
   pod 'DZNEmptyDataSet'
+  pod 'MWPhotoBrowser'
 
   # Pods for GankMeizi
 

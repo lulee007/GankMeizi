@@ -12,7 +12,8 @@ import RxSwift
 import CHTCollectionViewWaterfallLayout
 import MJRefresh
 import CocoaLumberjack
-import Kingfisher
+//import Kingfisher
+import SDWebImage
 
 extension String {
     func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
@@ -145,6 +146,7 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // 数据为空 隐藏 footer
         self.articleCollectionView.mj_footer.hidden = self.articleModel.articleEntities.count == 0
         return self.articleModel.articleEntities.count
     }
@@ -152,22 +154,37 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! ArticleCollectionViewCell
         
+        cell.backgroundColor = UIColor.whiteColor()
+        
         cell.title.text = self.articleModel.articleEntities[indexPath.item].desc!
         
-        cell.image.kf_setImageWithURL(NSURL(string: self.articleModel.articleEntities[indexPath.item].url!)!,optionsInfo:[.Transition(ImageTransition.Fade(0.5))])
         cell.image.clipsToBounds = true
-        
+        cell.image.sd_setImageWithURL(NSURL(string: self.articleModel.articleEntities[indexPath.item].url!)!, placeholderImage: nil, options: SDWebImageOptions.AvoidAutoSetImage, completed: { (image, error, cacheType, url) in
+            if error == nil {
+                cell.image.image = image
+                if cacheType == SDImageCacheType.None {
+                    cell.image.alpha = 0
+                    UIView.animateWithDuration(0.5, animations: {
+                        cell.image.alpha = 1
+                    })
+                }else{
+                    cell.image.alpha = 1
+                }
+            }
+        })
+        // 设置圆角
         cell.anchorView.layer.cornerRadius = 3;
         cell.anchorView.layer.masksToBounds = true
-        cell.layer.cornerRadius = 3;	//在self.layer上设置阴影
+        
+        //在self.layer上设置阴影
+        cell.layer.cornerRadius = 3;
         cell.layer.shadowColor = UIColor.darkGrayColor().CGColor;
         cell.layer.masksToBounds = false;
         cell.layer.shadowOffset = CGSizeMake(1, 2);
         cell.layer.shadowRadius = 4;
         cell.layer.shadowOpacity = 0.75;
         cell.layer.shadowPath = UIBezierPath.init(roundedRect: cell.layer.bounds, cornerRadius: 3).CGPath
-        cell.backgroundColor = UIColor.whiteColor()
-
+        
         return cell
     }
     
