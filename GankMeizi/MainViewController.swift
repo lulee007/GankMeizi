@@ -77,6 +77,11 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         
         //刷新头部
         self.articleCollectionView.mj_header = MJRefreshNormalHeader.init(refreshingBlock: {
+            if self.articleCollectionView.mj_footer.isRefreshing() {
+                DDLogDebug("mj_footer isRefreshing")
+                self.articleCollectionView.mj_header.endRefreshing()
+                return
+            }
             self.articleModel.refresh()
                 .observeOn(MainScheduler.instance)
                 .doOnCompleted({
@@ -99,6 +104,11 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         
         //加载更多底部
         let mjFooter = MJRefreshAutoStateFooter.init(refreshingBlock: {
+            if self.articleCollectionView.mj_header.isRefreshing() {
+                DDLogDebug("mj_footer isRefreshing")
+                self.articleCollectionView.mj_footer.endRefreshing()
+                return
+            }
             self.articleModel.loadMore()
                 .observeOn(MainScheduler.instance)
                 .doOnCompleted({

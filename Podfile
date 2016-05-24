@@ -9,6 +9,7 @@ target 'GankMeizi' do
   pod 'EAIntroView', '~> 2.8.0'
   pod 'SwiftyUserDefaults'
   pod 'CocoaLumberjack/Swift'
+  pod 'Alamofire', '~> 3.4'
   pod 'Moya'
   pod 'Moya/RxSwift'
   pod 'ObjectMapper', '~> 1.3'

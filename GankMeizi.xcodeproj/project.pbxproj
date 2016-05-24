@@ -359,7 +359,7 @@
 				TargetAttributes = {
 					A46939141CE9FD88004A896A = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 9S634QVW43;
+						DevelopmentTeam = 786JTEL4KV;
 					};
 					A46939281CE9FD88004A896A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -710,11 +710,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GankMeizi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lulee007.GankMeizi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.handsmap.GankMeizi;
 				PRODUCT_NAME = "干货集中营";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -724,11 +727,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GankMeizi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lulee007.GankMeizi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.handsmap.GankMeizi;
 				PRODUCT_NAME = "干货集中营";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
