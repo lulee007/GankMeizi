@@ -12,6 +12,7 @@ class ArticleCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var anchorView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

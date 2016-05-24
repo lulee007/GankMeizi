@@ -14,11 +14,8 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="167" height="329"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCG-td-NFJ" userLabel="an">
-                        <rect key="frame" x="0.0" y="0.0" width="167" height="1"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="GEE-by-DRI"/>
-                        </constraints>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCG-td-NFJ" userLabel="anchor">
+                        <rect key="frame" x="0.0" y="0.0" width="167" height="329"/>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="awg-bz-mK1">
                         <rect key="frame" x="0.0" y="0.0" width="167" height="167"/>
@@ -40,6 +37,7 @@
                 <constraint firstAttribute="trailing" secondItem="YRB-Tm-XKX" secondAttribute="trailing" id="0kE-aD-wrd"/>
                 <constraint firstItem="eCG-td-NFJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="3Q5-17-f1d"/>
                 <constraint firstItem="Les-En-mIj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="5rz-Te-FsX"/>
+                <constraint firstItem="eCG-td-NFJ" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="HGq-xC-7Wj"/>
                 <constraint firstItem="YRB-Tm-XKX" firstAttribute="top" secondItem="awg-bz-mK1" secondAttribute="bottom" id="O9B-9k-A9K"/>
                 <constraint firstItem="eCG-td-NFJ" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="R89-RJ-887"/>
                 <constraint firstItem="awg-bz-mK1" firstAttribute="width" secondItem="eCG-td-NFJ" secondAttribute="width" id="RZp-Kb-upx"/>
@@ -55,6 +53,7 @@
             </constraints>
             <size key="customSize" width="167" height="329"/>
             <connections>
+                <outlet property="anchorView" destination="eCG-td-NFJ" id="wdI-7u-dA9"/>
                 <outlet property="image" destination="awg-bz-mK1" id="zsk-Pn-P4W"/>
                 <outlet property="title" destination="Les-En-mIj" id="gPT-uM-xmP"/>
             </connections>

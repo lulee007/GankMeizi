@@ -48,7 +48,7 @@ class SplashViewController: UIViewController,EAIntroDelegate {
     }
     
     func buildAndShowIntroView()  {
-        self.view.backgroundColor = UIColor.init(red: 0, green: 0.49, blue: 0.96, alpha: 1.0)
+        self.view.backgroundColor = ThemeUtil.colorWithHexString(ThemeUtil.PRIMARY_COLOR)
         var pages = [EAIntroPage]()
         for pageIndex in 0..<3{
             let page = EAIntroPage.init()
@@ -59,7 +59,7 @@ class SplashViewController: UIViewController,EAIntroDelegate {
         let eaIntroView = EAIntroView.init(frame: (self.view.bounds), andPages: pages)
         eaIntroView.titleView = UIImageView.init(image: scaleImage(UIImage(named: "SplashTitle")!, toSize: CGSize.init(width: 135, height: 135)))
         eaIntroView.titleViewY = 90
-        eaIntroView.backgroundColor = UIColor.init(red: 0, green: 0.49, blue: 0.96, alpha: 1.0)
+        eaIntroView.backgroundColor = ThemeUtil.colorWithHexString(ThemeUtil.PRIMARY_COLOR)
         eaIntroView.skipButton.setTitle("跳过", forState: UIControlState.Normal)
         eaIntroView.delegate = self
         eaIntroView.showInView(self.view, animateDuration: 0.3)

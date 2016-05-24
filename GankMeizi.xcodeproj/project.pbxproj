@@ -359,6 +359,7 @@
 				TargetAttributes = {
 					A46939141CE9FD88004A896A = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 9S634QVW43;
 					};
 					A46939281CE9FD88004A896A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -708,6 +709,7 @@
 			baseConfigurationReference = 7DC26479A11BBEB756C50AD6 /* Pods-GankMeizi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GankMeizi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -721,6 +723,7 @@
 			baseConfigurationReference = 93CF6F47F674554845C46BCD /* Pods-GankMeizi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GankMeizi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
