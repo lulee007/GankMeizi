@@ -19,7 +19,6 @@
 		A42383D01CEEF17700CC9C1D /* GankIOAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383CF1CEEF17700CC9C1D /* GankIOAPI.swift */; };
 		A42383D31CEF273900CC9C1D /* ArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383D21CEF273900CC9C1D /* ArticleEntity.swift */; };
 		A42383D51CEF2AEC00CC9C1D /* BaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383D41CEF2AEC00CC9C1D /* BaseEntity.swift */; };
-		A42383D71CEF39D000CC9C1D /* DailyArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383D61CEF39D000CC9C1D /* DailyArticleEntity.swift */; };
 		A42383D91CEF4DD200CC9C1D /* HtmlArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383D81CEF4DD200CC9C1D /* HtmlArticleEntity.swift */; };
 		A42383E01CF1E09400CC9C1D /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383DE1CF1E09400CC9C1D /* ArticleCollectionViewCell.swift */; };
 		A42383E11CF1E09400CC9C1D /* ArticleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A42383DF1CF1E09400CC9C1D /* ArticleCollectionViewCell.xib */; };
@@ -36,6 +35,11 @@
 		A469398D1CEDA5DB004A896A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A469398C1CEDA5DB004A896A /* SplashViewController.swift */; };
 		A46939901CEDA70B004A896A /* ControllerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A469398F1CEDA70B004A896A /* ControllerUtil.swift */; };
 		A46939921CEDB866004A896A /* UserDefaultsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46939911CEDB866004A896A /* UserDefaultsUtil.swift */; };
+		A4CC777F1CF48A7D007A5EC0 /* DailyArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC777D1CF48A7D007A5EC0 /* DailyArticleEntity.swift */; };
+		A4CC77801CF48A7D007A5EC0 /* DailyArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC777E1CF48A7D007A5EC0 /* DailyArticleModel.swift */; };
+		A4CC77821CF48B02007A5EC0 /* DailyArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC77811CF48B02007A5EC0 /* DailyArticleViewController.swift */; };
+		A4CC77851CF4A29C007A5EC0 /* DailyArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC77831CF4A29C007A5EC0 /* DailyArticleTableViewCell.swift */; };
+		A4CC77861CF4A29C007A5EC0 /* DailyArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4CC77841CF4A29C007A5EC0 /* DailyArticleTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +88,6 @@
 		A42383CF1CEEF17700CC9C1D /* GankIOAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankIOAPI.swift; sourceTree = "<group>"; };
 		A42383D21CEF273900CC9C1D /* ArticleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleEntity.swift; sourceTree = "<group>"; };
 		A42383D41CEF2AEC00CC9C1D /* BaseEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseEntity.swift; sourceTree = "<group>"; };
-		A42383D61CEF39D000CC9C1D /* DailyArticleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyArticleEntity.swift; sourceTree = "<group>"; };
 		A42383D81CEF4DD200CC9C1D /* HtmlArticleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlArticleEntity.swift; sourceTree = "<group>"; };
 		A42383DE1CF1E09400CC9C1D /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		A42383DF1CF1E09400CC9C1D /* ArticleCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArticleCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -107,6 +110,11 @@
 		A469398C1CEDA5DB004A896A /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		A469398F1CEDA70B004A896A /* ControllerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerUtil.swift; sourceTree = "<group>"; };
 		A46939911CEDB866004A896A /* UserDefaultsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtil.swift; sourceTree = "<group>"; };
+		A4CC777D1CF48A7D007A5EC0 /* DailyArticleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyArticleEntity.swift; sourceTree = "<group>"; };
+		A4CC777E1CF48A7D007A5EC0 /* DailyArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyArticleModel.swift; sourceTree = "<group>"; };
+		A4CC77811CF48B02007A5EC0 /* DailyArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyArticleViewController.swift; sourceTree = "<group>"; };
+		A4CC77831CF4A29C007A5EC0 /* DailyArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyArticleTableViewCell.swift; sourceTree = "<group>"; };
+		A4CC77841CF4A29C007A5EC0 /* DailyArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DailyArticleTableViewCell.xib; sourceTree = "<group>"; };
 		B5D0B2CFA5CA3AC7CBA26CF5 /* Pods_GankMeiziTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GankMeiziTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B93B1DD9B40CF6A0536E2B8D /* Pods-GankMeiziTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GankMeiziTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GankMeiziTests/Pods-GankMeiziTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,11 +160,10 @@
 		A42383D11CEF270800CC9C1D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A419E64D1CF2D4C200C7457E /* ArticleModel.swift */,
 				A42383D21CEF273900CC9C1D /* ArticleEntity.swift */,
 				A42383D41CEF2AEC00CC9C1D /* BaseEntity.swift */,
-				A42383D61CEF39D000CC9C1D /* DailyArticleEntity.swift */,
 				A42383D81CEF4DD200CC9C1D /* HtmlArticleEntity.swift */,
-				A419E64D1CF2D4C200C7457E /* ArticleModel.swift */,
 				A419E64F1CF2D54300C7457E /* BaseModel.swift */,
 			);
 			path = Models;
@@ -188,6 +195,7 @@
 		A46939171CE9FD88004A896A /* GankMeizi */ = {
 			isa = PBXGroup;
 			children = (
+				A4CC777C1CF48946007A5EC0 /* DailyArticle */,
 				A42383D11CEF270800CC9C1D /* Models */,
 				A469398E1CEDA6E3004A896A /* Utils */,
 				A46939841CED9E7D004A896A /* Resources */,
@@ -267,6 +275,18 @@
 				A41318161CF362D400E2FE93 /* ThemeUtil.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		A4CC777C1CF48946007A5EC0 /* DailyArticle */ = {
+			isa = PBXGroup;
+			children = (
+				A4CC777D1CF48A7D007A5EC0 /* DailyArticleEntity.swift */,
+				A4CC777E1CF48A7D007A5EC0 /* DailyArticleModel.swift */,
+				A4CC77811CF48B02007A5EC0 /* DailyArticleViewController.swift */,
+				A4CC77831CF4A29C007A5EC0 /* DailyArticleTableViewCell.swift */,
+				A4CC77841CF4A29C007A5EC0 /* DailyArticleTableViewCell.xib */,
+			);
+			path = DailyArticle;
 			sourceTree = "<group>";
 		};
 		E3BFD0FFD39039056EABA8EA /* Pods */ = {
@@ -396,6 +416,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4CC77861CF4A29C007A5EC0 /* DailyArticleTableViewCell.xib in Resources */,
 				A420B8DF1CEEB6F20089C22A /* AppIcon@2x.png in Resources */,
 				A42383E11CF1E09400CC9C1D /* ArticleCollectionViewCell.xib in Resources */,
 				A46939231CE9FD88004A896A /* LaunchScreen.storyboard in Resources */,
@@ -553,17 +574,20 @@
 				A42383E01CF1E09400CC9C1D /* ArticleCollectionViewCell.swift in Sources */,
 				A41318171CF362D400E2FE93 /* ThemeUtil.swift in Sources */,
 				A42383D91CEF4DD200CC9C1D /* HtmlArticleEntity.swift in Sources */,
+				A4CC77821CF48B02007A5EC0 /* DailyArticleViewController.swift in Sources */,
 				A469398D1CEDA5DB004A896A /* SplashViewController.swift in Sources */,
 				A469391B1CE9FD88004A896A /* MainViewController.swift in Sources */,
 				A42383D31CEF273900CC9C1D /* ArticleEntity.swift in Sources */,
 				A41318151CF3096C00E2FE93 /* DateUtil.swift in Sources */,
 				A46939191CE9FD88004A896A /* AppDelegate.swift in Sources */,
 				A42383D51CEF2AEC00CC9C1D /* BaseEntity.swift in Sources */,
+				A4CC777F1CF48A7D007A5EC0 /* DailyArticleEntity.swift in Sources */,
+				A4CC77801CF48A7D007A5EC0 /* DailyArticleModel.swift in Sources */,
+				A4CC77851CF4A29C007A5EC0 /* DailyArticleTableViewCell.swift in Sources */,
 				A458DB131CEDD3D200563998 /* LoggerUtil.swift in Sources */,
 				A42383CC1CEEE27000CC9C1D /* GankIOService.swift in Sources */,
 				A419E6501CF2D54300C7457E /* BaseModel.swift in Sources */,
 				A42383D01CEEF17700CC9C1D /* GankIOAPI.swift in Sources */,
-				A42383D71CEF39D000CC9C1D /* DailyArticleEntity.swift in Sources */,
 				A46939921CEDB866004A896A /* UserDefaultsUtil.swift in Sources */,
 				A419E64E1CF2D4C200C7457E /* ArticleModel.swift in Sources */,
 				A46939901CEDA70B004A896A /* ControllerUtil.swift in Sources */,

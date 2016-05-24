@@ -27,13 +27,14 @@ extension String {
 }
 class MainViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, CHTCollectionViewDelegateWaterfallLayout {
     
-    let whiteSpace: CGFloat = 10.0
+    let whiteSpace: CGFloat = 8.0
     let articleModel = ArticleModel()
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var articleCollectionView: UICollectionView!
     
     override  func viewDidLoad() {
+        Defaults[.launchCount] += 1
         super.viewDidLoad()
         self.title = "干货集中营"
         // 1、设置导航栏标题属性：设置标题颜色
@@ -70,6 +71,7 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
     //MARK： setup uiview
     
     func setupCollectionView()  {
+        
         let layout = CHTCollectionViewWaterfallLayout()
         
         layout.minimumColumnSpacing = whiteSpace
@@ -136,6 +138,8 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         self.articleCollectionView.mj_footer = mjFooter
         self.articleCollectionView.mj_footer.hidden = true
         
+        
+        
     }
     
     // 注册 collection view cell
@@ -197,6 +201,14 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let entity = self.articleModel.articleEntities[indexPath.item]
+        
+        let controller = DailyArticleViewController.buildController(entity.publishedAt!)
+        self.navigationController?.pushViewController(controller, animated: true)
+        DDLogDebug("\(indexPath.item)")
+    }
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let desc = self.articleModel.articleEntities[indexPath.item].desc!
         
@@ -242,13 +254,9 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
     func imageTapped(sender:UITapGestureRecognizer)  {
         if ((sender.view?.isKindOfClass(UIImageView)) == true){
             let entity = articleModel.articleEntities[(sender.view?.tag)!]
-//            let photo = IDMPhoto.init(URL: NSURL(string: entity.url!))
-//            photo.caption = DateUtil.nsDateToString( entity.publishedAt!)
             let photoBrowser = IDMPhotoBrowser.init(photoURLs: [NSURL(string: entity.url!)!], animatedFromView: sender.view)
             photoBrowser.usePopAnimation = true
             self.presentViewController(photoBrowser, animated: true, completion: nil)
-            //TODO change to transition
-//            self.navigationController?.pushViewController(photoBrowser, animated: true)
             
         }
     }

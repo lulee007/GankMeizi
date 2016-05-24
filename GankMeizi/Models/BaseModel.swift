@@ -15,7 +15,7 @@ class BaseModel {
     var provider: RxMoyaProvider<GankIOService>
     
     var page = 1
-    var offset = 10
+    var offset = 20
     
     init(){
         let networkActivityPlugin = NetworkActivityPlugin { (change) -> () in

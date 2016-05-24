@@ -46,5 +46,38 @@
             </objects>
             <point key="canvasLocation" x="1964" y="-410"/>
         </scene>
+        <!--Daily Article View Controller-->
+        <scene sceneID="pmJ-sk-i9J">
+            <objects>
+                <viewController storyboardIdentifier="DailyArticle" id="Q8A-AG-B75" customClass="DailyArticleViewController" customModule="干货集中营" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GDc-na-xcA"/>
+                        <viewControllerLayoutGuide type="bottom" id="MkI-aB-nDW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jm4-1C-O7K">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3mq-gH-CHY">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3mq-gH-CHY" firstAttribute="width" secondItem="jm4-1C-O7K" secondAttribute="width" id="VFx-rl-BWa"/>
+                            <constraint firstItem="3mq-gH-CHY" firstAttribute="leading" secondItem="jm4-1C-O7K" secondAttribute="leading" id="YdD-2C-bO2"/>
+                            <constraint firstItem="3mq-gH-CHY" firstAttribute="top" secondItem="jm4-1C-O7K" secondAttribute="topMargin" id="l4A-sQ-QRD"/>
+                            <constraint firstItem="3mq-gH-CHY" firstAttribute="height" secondItem="jm4-1C-O7K" secondAttribute="height" id="vkF-sZ-rpw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="3mq-gH-CHY" id="zqb-p7-zLA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="52C-1B-dRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2339" y="246"/>
+        </scene>
     </scenes>
 </document>

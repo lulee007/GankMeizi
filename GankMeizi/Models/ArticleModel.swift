@@ -35,30 +35,6 @@ class ArticleModel: BaseModel {
     
     //MARK: private method
     
-//    private func getArticleInfoByPage(page:Int,count:Int) -> Observable<[HtmlArticleEntity]>{
-//        return provider
-//            .request(GankIOService.HtmlByPage(page: page, count: count))
-//            .map({ (response) -> [HtmlArticleEntity] in
-//                let result = Mapper<BaseEntity<HtmlArticleEntity>>().map(String(data: response.data,encoding:  NSUTF8StringEncoding))
-//                let data = (result?.results)!
-//                if page == 1{
-//                    // new or refresh data
-//                    self.articleEntities = data
-//                }else{
-//                    self.articleEntities += data
-//                }
-//                return (result?.results)!
-//            })
-//            
-//            .doOnNext({ (entities) in
-//                if entities.isEmpty {
-//                    self.page -= 1
-//                }else{
-//                    self.page += 1
-//                }
-//            })
-//    }
-    
     private func getArticleInfoByPage(page:Int) -> Observable<[ArticleEntity]> {
         return Observable
             .zip(
