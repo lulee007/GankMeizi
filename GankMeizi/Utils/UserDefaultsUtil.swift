@@ -11,4 +11,5 @@ import SwiftyUserDefaults
 extension DefaultsKeys {
     static let username = DefaultsKey<String?>("username")
     static let launchCount = DefaultsKey<Int>("launchCount")
+    static let splashAnimated = DefaultsKey<Bool>("splashAnimated")
 }
