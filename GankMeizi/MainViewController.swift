@@ -13,7 +13,7 @@ import CHTCollectionViewWaterfallLayout
 import MJRefresh
 import CocoaLumberjack
 import SDWebImage
-import MWPhotoBrowser
+import IDMPhotoBrowser
 import SwiftyUserDefaults
 
 extension String {
@@ -44,15 +44,20 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         
         self.articleCollectionView.dataSource = self
         self.articleCollectionView.delegate = self
+        
         registerNibs()
+        
         setupCollectionView()
+        
         //refresh
         self.articleCollectionView.mj_header.executeRefreshingCallback()
+        
+        launchAnimation()
+
     }
     
     override  func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        launchAnimation()
         
     }
     
@@ -133,13 +138,14 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         
     }
     
+    // 注册 collection view cell
     func registerNibs() {
         let viewNib = UINib(nibName: "ArticleCollectionViewCell", bundle: nil)
         self.articleCollectionView.registerNib(viewNib, forCellWithReuseIdentifier: "cell")
     }
     
     //MARK: delegate
-    /*   */
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -171,7 +177,7 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
                 }
             }
         })
-        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(MainViewController.imageTapped(_:)))
         cell.image.tag = indexPath.item
         cell.image.userInteractionEnabled = true
         cell.image.addGestureRecognizer(tapGestureRecognizer)
@@ -201,7 +207,7 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         return CGSize.init(width: width, height: width + height + 10.0)
     }
     
-    // MARK: 启动过渡效果
+    // MARK: 启动画面过渡效果
     
     func launchAnimation()  {
         if !Defaults[.splashAnimated] {
@@ -236,10 +242,13 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
     func imageTapped(sender:UITapGestureRecognizer)  {
         if ((sender.view?.isKindOfClass(UIImageView)) == true){
             let entity = articleModel.articleEntities[(sender.view?.tag)!]
-            let photo = MWPhoto.init(URL: NSURL(string: entity.url!))
-            photo.caption = DateUtil.nsDateToString( entity.publishedAt!)
-            let photoBrowser = MWPhotoBrowser.init(photos: [photo])
-            self.navigationController?.pushViewController(photoBrowser, animated: true)
+//            let photo = IDMPhoto.init(URL: NSURL(string: entity.url!))
+//            photo.caption = DateUtil.nsDateToString( entity.publishedAt!)
+            let photoBrowser = IDMPhotoBrowser.init(photoURLs: [NSURL(string: entity.url!)!], animatedFromView: sender.view)
+            photoBrowser.usePopAnimation = true
+            self.presentViewController(photoBrowser, animated: true, completion: nil)
+            //TODO change to transition
+//            self.navigationController?.pushViewController(photoBrowser, animated: true)
             
         }
     }

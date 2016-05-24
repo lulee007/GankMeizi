@@ -19,8 +19,9 @@ target 'GankMeizi' do
   pod 'SDWebImage', '~>3.7'
   pod 'MJRefresh'
   pod 'DZNEmptyDataSet'
-  pod 'MWPhotoBrowser'
-
+  
+  #  pod 'MWPhotoBrowser'
+  pod 'IDMPhotoBrowser'
   # Pods for GankMeizi
 
   target 'GankMeiziTests' do
