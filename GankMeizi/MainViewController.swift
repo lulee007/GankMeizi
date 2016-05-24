@@ -145,8 +145,19 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         cell.title.text = self.articleModel.articleEntities[indexPath.item].desc!
         
         cell.image.kf_setImageWithURL(NSURL(string: self.articleModel.articleEntities[indexPath.item].url!)!,optionsInfo:[.Transition(ImageTransition.Fade(0.5))])
+        cell.image.clipsToBounds = true
         
+        cell.anchorView.layer.cornerRadius = 3;
+        cell.anchorView.layer.masksToBounds = true
+        cell.layer.cornerRadius = 3;	//在self.layer上设置阴影
+        cell.layer.shadowColor = UIColor.darkGrayColor().CGColor;
+        cell.layer.masksToBounds = false;
+        cell.layer.shadowOffset = CGSizeMake(1, 2);
+        cell.layer.shadowRadius = 4;
+        cell.layer.shadowOpacity = 0.75;
+        cell.layer.shadowPath = UIBezierPath.init(roundedRect: cell.layer.bounds, cornerRadius: 3).CGPath
         cell.backgroundColor = UIColor.whiteColor()
+
         return cell
     }
     

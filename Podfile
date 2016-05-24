@@ -11,7 +11,6 @@ target 'GankMeizi' do
   pod 'CocoaLumberjack/Swift'
   pod 'Moya'
   pod 'Moya/RxSwift'
-  pod 'SwiftyUserDefaults'
   pod 'ObjectMapper', '~> 1.3'
   pod 'CHTCollectionViewWaterfallLayout/Swift', :git => 'git@github.com:chiahsien/CHTCollectionViewWaterfallLayout.git', :branch => 'develop'
   pod 'Kingfisher', '~> 2.4'
