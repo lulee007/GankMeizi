@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func launch()  {
         window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
         
-        
+        Defaults[.splashAnimated] = false
         let launchCount = Defaults[.launchCount]
         Defaults[.launchCount] += 1
         DDLogDebug("当前启动次数：\(launchCount+1)")

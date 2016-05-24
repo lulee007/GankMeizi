@@ -12,8 +12,9 @@ import RxSwift
 import CHTCollectionViewWaterfallLayout
 import MJRefresh
 import CocoaLumberjack
-//import Kingfisher
 import SDWebImage
+import MWPhotoBrowser
+import SwiftyUserDefaults
 
 extension String {
     func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
@@ -27,7 +28,6 @@ extension String {
 class MainViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, CHTCollectionViewDelegateWaterfallLayout {
     
     let whiteSpace: CGFloat = 10.0
-    var needAnim: Bool = true
     let articleModel = ArticleModel()
     let disposeBag = DisposeBag()
     
@@ -46,15 +46,14 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         self.articleCollectionView.delegate = self
         registerNibs()
         setupCollectionView()
-        
+        //refresh
+        self.articleCollectionView.mj_header.executeRefreshingCallback()
     }
     
     override  func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         launchAnimation()
         
-        //refresh
-        self.articleCollectionView.mj_header.executeRefreshingCallback()
     }
     
     override  func didReceiveMemoryWarning() {
@@ -172,6 +171,10 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
                 }
             }
         })
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+        cell.image.tag = indexPath.item
+        cell.image.userInteractionEnabled = true
+        cell.image.addGestureRecognizer(tapGestureRecognizer)
         // 设置圆角
         cell.anchorView.layer.cornerRadius = 3;
         cell.anchorView.layer.masksToBounds = true
@@ -201,7 +204,8 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
     // MARK: 启动过渡效果
     
     func launchAnimation()  {
-        if needAnim {
+        if !Defaults[.splashAnimated] {
+            Defaults[.splashAnimated] = true
             let toAnimVC = ControllerUtil.loadViewControllerWithName("LaunchScreen", sbName: "LaunchScreen")
             
             let launchView = toAnimVC.view
@@ -218,12 +222,26 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         }
     }
     
-    
+    //MARK: 对外接口
     
     static func buildController() -> MainViewController{
         let controller = ControllerUtil.loadViewControllerWithName("MainView", sbName: "Main") as! MainViewController
-        controller.needAnim = false
+        // does not need anim
+        Defaults[.splashAnimated] = true
         return controller
+    }
+    
+    //MARK: 私有方法
+    
+    func imageTapped(sender:UITapGestureRecognizer)  {
+        if ((sender.view?.isKindOfClass(UIImageView)) == true){
+            let entity = articleModel.articleEntities[(sender.view?.tag)!]
+            let photo = MWPhoto.init(URL: NSURL(string: entity.url!))
+            photo.caption = DateUtil.nsDateToString( entity.publishedAt!)
+            let photoBrowser = MWPhotoBrowser.init(photos: [photo])
+            self.navigationController?.pushViewController(photoBrowser, animated: true)
+            
+        }
     }
     
     
