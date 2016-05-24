@@ -5,6 +5,9 @@
 
 ## 截图
 ![截图1](Screenshots/gankio-1.gif)
+![截图2](Screenshots/gankio-2.gif)  
+
+![截图3](Screenshots/gankio-3.gif)
 ## 开始
 从最开的的 ruby 安装， cocopods 和 carthage 安装与对比
 
