@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class DailyArticleViewController: UIViewController {
+class DailyArticleViewController: UIViewController,UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,6 +28,20 @@ class DailyArticleViewController: UIViewController {
         tableView.registerNib(nib, forCellReuseIdentifier: "cell")
         
         tableView.dataSource = nil
+        tableView.delegate = dataSource
+        tableView
+            .rx_itemSelected
+        .subscribeNext { (indexPath) in
+            let sectionIndex = self.dataSource.items?.category![indexPath.section]
+
+            let entity = self.dataSource.items?.results![sectionIndex!]![indexPath.item]
+            let controller = WebViewController.buildControllerForArticle(entity!)
+            self.navigationController?.pushViewController(controller, animated: true)
+            
+            
+        }.addDisposableTo(disposeBag)
+        
+        
         dailyArticleModel
             .getArticleByDate(date!)
             .map({ (entity) -> [DailyArticleEntity] in
@@ -39,8 +53,10 @@ class DailyArticleViewController: UIViewController {
         
     }
     
-    //MARK: - UITableView DataSource
-    
+    //MARK: - UITableView Delegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
     
     
     //MARK: public API
@@ -56,7 +72,7 @@ class DailyArticleViewController: UIViewController {
     
     
 }
-class DailyArticleDataSource: NSObject, RxTableViewDataSourceType, UITableViewDataSource {
+class DailyArticleDataSource: NSObject, RxTableViewDataSourceType, UITableViewDataSource ,UITableViewDelegate{
     
     typealias Element = [DailyArticleEntity]
     var items: DailyArticleEntity?
@@ -87,7 +103,7 @@ class DailyArticleDataSource: NSObject, RxTableViewDataSourceType, UITableViewDa
         let sectionIndex = items?.category![indexPath.section]
         let entity = items?.results![sectionIndex!]![indexPath.item]
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! DailyArticleTableViewCell
-        cell.title.text = entity?.desc
+        cell.title.text = "🐛 " + (entity?.desc ?? "")
         return cell
         
     }
@@ -95,6 +111,15 @@ class DailyArticleDataSource: NSObject, RxTableViewDataSourceType, UITableViewDa
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let sectionIndex = items?.category![section]
         return sectionIndex
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
+        return UITableViewAutomaticDimension
+
     }
     
 }

@@ -21,9 +21,11 @@ class DailyArticleModel: BaseModel {
     func getArticleByDate(date: NSDate) -> Observable<DailyArticleEntity> {
         let components = NSCalendar.currentCalendar().components([.Day,.Month,.Year], fromDate: date)
         return  provider.request(GankIOService.ByDay(year: components.year, month: components.month, day: components.day))
-        .map({ (response) ->  DailyArticleEntity in
-            let result = Mapper<DailyArticleEntity>().map(String(data:response.data,encoding: NSUTF8StringEncoding))
-            return result!
-        })
+            .observeOn(backgroundWorkScheduler)
+            .map({ (response) ->  DailyArticleEntity in
+                let result = Mapper<DailyArticleEntity>().map(String(data:response.data,encoding: NSUTF8StringEncoding))
+                return result!
+            })
+            .observeOn(MainScheduler.instance)
     }
 }

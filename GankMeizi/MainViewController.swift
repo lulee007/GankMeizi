@@ -42,7 +42,10 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
         // 2、设置导航栏前景色：设置item指示色
         self.navigationController?.navigationBar.barTintColor = ThemeUtil.colorWithHexString(ThemeUtil.DARK_PRIMARY_COLOR)
-        
+
+        // 3、设置导航栏前景色：设置item指示色
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+
         self.articleCollectionView.dataSource = self
         self.articleCollectionView.delegate = self
         
@@ -90,7 +93,6 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
                 return
             }
             self.articleModel.refresh()
-                .observeOn(MainScheduler.instance)
                 .doOnCompleted({
                     self.articleCollectionView.mj_header.endRefreshing()
                 })
@@ -193,8 +195,8 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         cell.layer.cornerRadius = 3;
         cell.layer.shadowColor = UIColor.darkGrayColor().CGColor;
         cell.layer.masksToBounds = false;
-        cell.layer.shadowOffset = CGSizeMake(1, 2);
-        cell.layer.shadowRadius = 4;
+        cell.layer.shadowOffset = CGSizeMake(1, 1.5);
+        cell.layer.shadowRadius = 2;
         cell.layer.shadowOpacity = 0.75;
         cell.layer.shadowPath = UIBezierPath.init(roundedRect: cell.layer.bounds, cornerRadius: 3).CGPath
         

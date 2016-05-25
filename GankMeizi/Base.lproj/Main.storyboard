@@ -79,5 +79,37 @@
             </objects>
             <point key="canvasLocation" x="2339" y="246"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="ahX-bZ-Bv8">
+            <objects>
+                <viewController storyboardIdentifier="WebView" id="tv4-al-dTh" customClass="WebViewController" customModule="干货集中营" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dyi-fH-BTG"/>
+                        <viewControllerLayoutGuide type="bottom" id="1hx-yL-koB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xvw-yR-wWS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y76-0d-FSz">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="y76-0d-FSz" firstAttribute="height" secondItem="xvw-yR-wWS" secondAttribute="height" id="FsH-eI-RDT"/>
+                            <constraint firstItem="y76-0d-FSz" firstAttribute="leading" secondItem="xvw-yR-wWS" secondAttribute="leading" id="JyS-Xt-7I5"/>
+                            <constraint firstItem="y76-0d-FSz" firstAttribute="top" secondItem="xvw-yR-wWS" secondAttribute="top" id="Lz7-ZJ-GON"/>
+                            <constraint firstItem="y76-0d-FSz" firstAttribute="width" secondItem="xvw-yR-wWS" secondAttribute="width" id="xZW-wB-emP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="y76-0d-FSz" id="Zpl-2J-ugn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qaf-X8-4wG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
 </document>

@@ -40,6 +40,7 @@
 		A4CC77821CF48B02007A5EC0 /* DailyArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC77811CF48B02007A5EC0 /* DailyArticleViewController.swift */; };
 		A4CC77851CF4A29C007A5EC0 /* DailyArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC77831CF4A29C007A5EC0 /* DailyArticleTableViewCell.swift */; };
 		A4CC77861CF4A29C007A5EC0 /* DailyArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4CC77841CF4A29C007A5EC0 /* DailyArticleTableViewCell.xib */; };
+		A4CC778B1CF4AA7C007A5EC0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC778A1CF4AA7C007A5EC0 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		A4CC77811CF48B02007A5EC0 /* DailyArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyArticleViewController.swift; sourceTree = "<group>"; };
 		A4CC77831CF4A29C007A5EC0 /* DailyArticleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyArticleTableViewCell.swift; sourceTree = "<group>"; };
 		A4CC77841CF4A29C007A5EC0 /* DailyArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DailyArticleTableViewCell.xib; sourceTree = "<group>"; };
+		A4CC778A1CF4AA7C007A5EC0 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		B5D0B2CFA5CA3AC7CBA26CF5 /* Pods_GankMeiziTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GankMeiziTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B93B1DD9B40CF6A0536E2B8D /* Pods-GankMeiziTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GankMeiziTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GankMeiziTests/Pods-GankMeiziTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +197,7 @@
 		A46939171CE9FD88004A896A /* GankMeizi */ = {
 			isa = PBXGroup;
 			children = (
+				A4CC77891CF4AA4D007A5EC0 /* Common */,
 				A4CC777C1CF48946007A5EC0 /* DailyArticle */,
 				A42383D11CEF270800CC9C1D /* Models */,
 				A469398E1CEDA6E3004A896A /* Utils */,
@@ -287,6 +290,14 @@
 				A4CC77841CF4A29C007A5EC0 /* DailyArticleTableViewCell.xib */,
 			);
 			path = DailyArticle;
+			sourceTree = "<group>";
+		};
+		A4CC77891CF4AA4D007A5EC0 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A4CC778A1CF4AA7C007A5EC0 /* WebViewController.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		E3BFD0FFD39039056EABA8EA /* Pods */ = {
@@ -575,6 +586,7 @@
 				A41318171CF362D400E2FE93 /* ThemeUtil.swift in Sources */,
 				A42383D91CEF4DD200CC9C1D /* HtmlArticleEntity.swift in Sources */,
 				A4CC77821CF48B02007A5EC0 /* DailyArticleViewController.swift in Sources */,
+				A4CC778B1CF4AA7C007A5EC0 /* WebViewController.swift in Sources */,
 				A469398D1CEDA5DB004A896A /* SplashViewController.swift in Sources */,
 				A469391B1CE9FD88004A896A /* MainViewController.swift in Sources */,
 				A42383D31CEF273900CC9C1D /* ArticleEntity.swift in Sources */,

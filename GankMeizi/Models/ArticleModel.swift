@@ -35,16 +35,19 @@ class ArticleModel: BaseModel {
     
     //MARK: private method
     
+    
     private func getArticleInfoByPage(page:Int) -> Observable<[ArticleEntity]> {
         return Observable
             .zip(
                 provider
                     .request(GankIOService.ByPageAndKind(kind: "福利", page: page, count: self.offset))
+                    .observeOn(backgroundWorkScheduler)
                     .map({ (response) -> [ArticleEntity] in
                         let result = Mapper<BaseEntity<ArticleEntity>>().map(String(data: response.data,encoding:  NSUTF8StringEncoding))
                         return (result?.results)!
                     }),
                 provider.request(GankIOService.ByPageAndKind(kind: "休息视频", page: page, count: self.offset))
+                    .observeOn(backgroundWorkScheduler)
                     .map({ (response) -> [ArticleEntity] in
                         let result = Mapper<BaseEntity<ArticleEntity>>().map(String(data: response.data,encoding:  NSUTF8StringEncoding))
                         return (result?.results)!
@@ -69,6 +72,7 @@ class ArticleModel: BaseModel {
                     self.page += 1
                 }
             })
+            .observeOn(MainScheduler.instance)
     }
     
     func getFirstVideoDescByPublishTime(videos: [ArticleEntity],publishedAt:NSDate) -> String {
@@ -86,4 +90,4 @@ class ArticleModel: BaseModel {
         return videoDesc
     }
     
-   }
+}
