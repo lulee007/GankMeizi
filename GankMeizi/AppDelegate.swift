@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyUserDefaults
 import CocoaLumberjack
+//import AMScrollingNavbar
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

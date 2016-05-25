@@ -103,7 +103,8 @@ class DailyArticleDataSource: NSObject, RxTableViewDataSourceType, UITableViewDa
         let sectionIndex = items?.category![indexPath.section]
         let entity = items?.results![sectionIndex!]![indexPath.item]
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! DailyArticleTableViewCell
-        cell.title.text = "🐛 " + (entity?.desc ?? "")
+        cell.title.text =  (entity?.desc ?? "")
+        cell.from.text = "-- " + (entity?.who ?? "佚名")
         return cell
         
     }

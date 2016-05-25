@@ -11,6 +11,7 @@ import UIKit
 class DailyArticleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var from: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
