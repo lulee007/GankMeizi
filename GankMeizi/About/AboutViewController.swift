@@ -10,7 +10,7 @@ import UIKit
 
 class AboutViewController: UIViewController {
     
-    @IBOutlet weak var introduce: UILabel!
+    @IBOutlet weak var introduce: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         let dataPath = NSBundle.mainBundle().pathForResource("AboutData", ofType: "txt")
