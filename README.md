@@ -78,3 +78,5 @@ TO BE CONTINUE ...
 
 * pop (1.0.9)  
   `IDMPhotoBrowser`依赖项
+
+## 感谢

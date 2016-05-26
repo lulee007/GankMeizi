@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DDLogDebug("加载Welcome")
             self.window?.rootViewController = toShowViewController
         }else{
-            toShowViewController = ControllerUtil.loadViewControllerWithName("MainView", sbName: "Main")
+            toShowViewController = ControllerUtil.loadViewControllerWithName("MainTabBar", sbName: "Main")
             DDLogDebug("加载Main")
             setupRootVCWithNC(toShowViewController)
         }

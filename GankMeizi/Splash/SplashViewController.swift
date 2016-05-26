@@ -43,7 +43,7 @@ class SplashViewController: UIViewController,EAIntroDelegate {
     func introDidFinish(introView: EAIntroView!) {
         DDLogDebug("欢迎页结束，进入主页")
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.setupRootVCWithNC(MainViewController.buildController())
+        appDelegate.setupRootVCWithNC(MainTabBarViewController.buildController())
         
     }
     

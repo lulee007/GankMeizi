@@ -14,7 +14,6 @@ import MJRefresh
 import CocoaLumberjack
 import SDWebImage
 import IDMPhotoBrowser
-import SwiftyUserDefaults
 
 extension String {
     func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
@@ -34,20 +33,8 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
     @IBOutlet weak var articleCollectionView: UICollectionView!
     
     override  func viewDidLoad() {
-        Defaults[.launchCount] += 1
         super.viewDidLoad()
-        self.title = "干货集中营"
-        // 1、设置导航栏标题属性：设置标题颜色
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
-        // 2、设置导航栏前景色：设置item指示色
-        self.navigationController?.navigationBar.barTintColor = ThemeUtil.colorWithHexString(ThemeUtil.DARK_PRIMARY_COLOR)
-
-        // 3、设置导航栏前景色：设置item指示色
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-
-        self.articleCollectionView.dataSource = self
-        self.articleCollectionView.delegate = self
         
         registerNibs()
         
@@ -56,7 +43,6 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         //refresh
         self.articleCollectionView.mj_header.executeRefreshingCallback()
         
-        launchAnimation()
 
     }
     
@@ -74,6 +60,8 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
     //MARK： setup uiview
     
     func setupCollectionView()  {
+        self.articleCollectionView.dataSource = self
+        self.articleCollectionView.delegate = self
         
         let layout = CHTCollectionViewWaterfallLayout()
         
@@ -221,36 +209,6 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         return CGSize.init(width: width, height: width + height + 10.0)
     }
     
-    // MARK: 启动画面过渡效果
-    
-    func launchAnimation()  {
-        if !Defaults[.splashAnimated] {
-            Defaults[.splashAnimated] = true
-            let toAnimVC = ControllerUtil.loadViewControllerWithName("LaunchScreen", sbName: "LaunchScreen")
-            
-            let launchView = toAnimVC.view
-            let mainWindow = UIApplication .sharedApplication().keyWindow
-            launchView.frame = (mainWindow?.frame)!
-            mainWindow?.addSubview(launchView)
-            
-            UIView.animateWithDuration(1.0, delay: 0.5, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
-                launchView.alpha = 0.0
-                launchView.layer.transform = CATransform3DScale(CATransform3DIdentity, 2.0, 2.0, 1.0)
-            }) { (finished) in
-                launchView.removeFromSuperview()
-            }
-        }
-    }
-    
-    //MARK: 对外接口
-    
-    static func buildController() -> MainViewController{
-        let controller = ControllerUtil.loadViewControllerWithName("MainView", sbName: "Main") as! MainViewController
-        // does not need anim
-        Defaults[.splashAnimated] = true
-        return controller
-    }
-    
     //MARK: 私有方法
     
     func imageTapped(sender:UITapGestureRecognizer)  {
@@ -262,8 +220,6 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
             
         }
     }
-    
-    
     
 }
 
