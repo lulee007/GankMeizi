@@ -3,7 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--最新-->
@@ -125,58 +127,89 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4d-P2-jVF">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s2T-sO-qFB" userLabel="anchor">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <rect key="frame" x="0.0" y="8" width="600" height="278"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eW8-nC-UDN">
-                                                <rect key="frame" x="279" y="289.5" width="42" height="21"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ny4-CL-AyW">
+                                                <rect key="frame" x="200" y="0.0" width="200" height="200"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="干货集中营 v1.0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eW8-nC-UDN">
+                                                <rect key="frame" x="248" y="208" width="103.5" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="4WD-hR-OVC"/>
                                                     <constraint firstAttribute="width" constant="42" id="rBA-VS-ybN"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" red="0.44705882352941173" green="0.44705882352941173" blue="0.44705882352941173" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="4WD-hR-OVC"/>
+                                                        <exclude reference="rBA-VS-ybN"/>
+                                                    </mask>
+                                                </variation>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="介绍" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imq-5S-UoC">
+                                                <rect key="frame" x="8" y="254" width="584" height="24"/>
+                                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="imq-5S-UoC" secondAttribute="bottom" id="7vH-2n-yZL"/>
+                                            <constraint firstAttribute="bottom" secondItem="imq-5S-UoC" secondAttribute="bottom" id="9WB-Dm-wDT"/>
+                                            <constraint firstItem="imq-5S-UoC" firstAttribute="top" secondItem="eW8-nC-UDN" secondAttribute="bottom" constant="30" id="BPY-CQ-PZY"/>
+                                            <constraint firstItem="ny4-CL-AyW" firstAttribute="height" secondItem="s2T-sO-qFB" secondAttribute="width" multiplier="0.333" id="JTj-hQ-fpB"/>
+                                            <constraint firstItem="ny4-CL-AyW" firstAttribute="width" secondItem="s2T-sO-qFB" secondAttribute="width" multiplier="0.333" id="NEh-I9-C5e"/>
+                                            <constraint firstAttribute="trailing" secondItem="imq-5S-UoC" secondAttribute="trailing" constant="8" id="NJa-We-IMj"/>
                                             <constraint firstItem="eW8-nC-UDN" firstAttribute="centerX" secondItem="s2T-sO-qFB" secondAttribute="centerX" id="Wty-Zs-k3D"/>
-                                            <constraint firstItem="eW8-nC-UDN" firstAttribute="centerY" secondItem="s2T-sO-qFB" secondAttribute="centerY" id="d7U-Cw-b9u"/>
+                                            <constraint firstItem="ny4-CL-AyW" firstAttribute="centerX" secondItem="s2T-sO-qFB" secondAttribute="centerX" id="qMY-LJ-kup"/>
+                                            <constraint firstItem="ny4-CL-AyW" firstAttribute="top" secondItem="s2T-sO-qFB" secondAttribute="top" id="sTr-Uf-6bv"/>
+                                            <constraint firstItem="ny4-CL-AyW" firstAttribute="top" secondItem="s2T-sO-qFB" secondAttribute="top" constant="16" id="v82-Zq-dTN"/>
+                                            <constraint firstItem="eW8-nC-UDN" firstAttribute="top" secondItem="ny4-CL-AyW" secondAttribute="bottom" constant="8" id="xck-Yg-cTQ"/>
+                                            <constraint firstItem="imq-5S-UoC" firstAttribute="leading" secondItem="s2T-sO-qFB" secondAttribute="leading" constant="8" id="zth-93-osx"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="v82-Zq-dTN"/>
+                                                <exclude reference="7vH-2n-yZL"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="s2T-sO-qFB" secondAttribute="trailing" id="99G-SH-GWC"/>
-                                    <constraint firstAttribute="bottom" secondItem="s2T-sO-qFB" secondAttribute="bottom" id="BCk-RL-yYg"/>
-                                    <constraint firstItem="s2T-sO-qFB" firstAttribute="width" secondItem="p4d-P2-jVF" secondAttribute="width" id="Dbu-n5-sP8"/>
-                                    <constraint firstItem="s2T-sO-qFB" firstAttribute="height" secondItem="p4d-P2-jVF" secondAttribute="height" id="IN5-3H-lXZ"/>
-                                    <constraint firstItem="s2T-sO-qFB" firstAttribute="leading" secondItem="p4d-P2-jVF" secondAttribute="leading" id="c2g-1v-Qni"/>
-                                    <constraint firstItem="s2T-sO-qFB" firstAttribute="top" secondItem="p4d-P2-jVF" secondAttribute="top" id="hHq-82-aC6"/>
+                                    <constraint firstItem="s2T-sO-qFB" firstAttribute="width" secondItem="p4d-P2-jVF" secondAttribute="width" id="CSK-qc-df7"/>
+                                    <constraint firstItem="s2T-sO-qFB" firstAttribute="leading" secondItem="p4d-P2-jVF" secondAttribute="leading" id="JdF-7y-LQj"/>
+                                    <constraint firstAttribute="trailing" secondItem="s2T-sO-qFB" secondAttribute="trailing" id="MH2-Kd-Lqq"/>
+                                    <constraint firstItem="s2T-sO-qFB" firstAttribute="top" secondItem="p4d-P2-jVF" secondAttribute="top" constant="8" id="h03-L2-OWu"/>
+                                    <constraint firstItem="s2T-sO-qFB" firstAttribute="bottom" secondItem="p4d-P2-jVF" secondAttribute="bottom" id="nZ9-hD-Wla"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="p4d-P2-jVF" firstAttribute="leading" secondItem="Zer-JL-IaM" secondAttribute="leading" id="09D-0E-w8t"/>
-                            <constraint firstItem="p4d-P2-jVF" firstAttribute="width" secondItem="Zer-JL-IaM" secondAttribute="width" id="PLV-HZ-IIu"/>
-                            <constraint firstItem="goK-Nd-dQp" firstAttribute="top" secondItem="p4d-P2-jVF" secondAttribute="bottom" id="TgL-aB-TLB"/>
-                            <constraint firstItem="p4d-P2-jVF" firstAttribute="top" secondItem="Zer-JL-IaM" secondAttribute="top" id="iz2-T8-rsi"/>
-                            <constraint firstItem="p4d-P2-jVF" firstAttribute="height" secondItem="Zer-JL-IaM" secondAttribute="height" id="izo-3m-DAx"/>
-                            <constraint firstAttribute="trailing" secondItem="p4d-P2-jVF" secondAttribute="trailing" id="pvO-JE-7pP"/>
+                            <constraint firstItem="p4d-P2-jVF" firstAttribute="top" secondItem="Zer-JL-IaM" secondAttribute="topMargin" id="0NH-kc-6kJ"/>
+                            <constraint firstAttribute="trailing" secondItem="p4d-P2-jVF" secondAttribute="trailing" id="FLT-w9-rZA"/>
+                            <constraint firstItem="p4d-P2-jVF" firstAttribute="top" secondItem="h9q-ZE-WjD" secondAttribute="bottom" id="MKn-Pj-Y1f"/>
+                            <constraint firstItem="goK-Nd-dQp" firstAttribute="top" secondItem="p4d-P2-jVF" secondAttribute="bottom" id="bEZ-Sg-7ae"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="pvO-JE-7pP"/>
-                                <exclude reference="TgL-aB-TLB"/>
+                                <exclude reference="MKn-Pj-Y1f"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="关于" image="about.png" id="E6a-ex-FW6"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="introduce" destination="imq-5S-UoC" id="vbl-7i-UdF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdg-vR-VPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,6 +255,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AppIcon.png" width="448" height="448"/>
         <image name="about.png" width="25" height="25"/>
         <image name="menu.png" width="25" height="25"/>
         <image name="time.png" width="25" height="25"/>

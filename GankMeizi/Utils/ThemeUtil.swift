@@ -11,7 +11,8 @@ import UIKit
 public class ThemeUtil {
     
     public static let DARK_PRIMARY_COLOR = "#C2185B"
-    public static let PRIMARY_COLOR = "#E91E63"    
+    public static let PRIMARY_COLOR = "#E91E63"
+    public static let ACCENT_COLOR = "#FF4081"
     static func colorWithHexString (hex:String) -> UIColor {
         var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).uppercaseString
         

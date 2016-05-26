@@ -9,17 +9,26 @@
 import UIKit
 
 class AboutViewController: UIViewController {
-
+    
+    @IBOutlet weak var introduce: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "关于"
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        let dataPath = NSBundle.mainBundle().pathForResource("AboutData", ofType: "txt")
+        
+        do{
+            let aboutData = try String.init(contentsOfFile: dataPath!, encoding: NSUTF8StringEncoding)
+            let attrStr = try NSAttributedString.init(data: aboutData.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+            
+//            let aboutHtml = NSAttributedString.init(string: aboutData, attributes: [NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType])
+            introduce.attributedText = attrStr
+        }catch {
+            print(error)
+        }
+        
     }
     
-
+    override func viewWillAppear(animated: Bool) {
+        self.parentViewController?.title = "关于"
+    }
+    
 }

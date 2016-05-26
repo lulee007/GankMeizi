@@ -35,7 +35,6 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
     override  func viewDidLoad() {
         super.viewDidLoad()
         
-        
         registerNibs()
         
         setupCollectionView()
@@ -46,15 +45,13 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
 
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.parentViewController?.title = "最新"
+    }
+    
     override  func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-    }
-    
-    override  func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-        // Dispose of any resources that can be recreated.
     }
     
     //MARK： setup uiview

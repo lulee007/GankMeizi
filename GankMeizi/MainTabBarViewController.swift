@@ -13,7 +13,9 @@ class MainTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         Defaults[.launchCount] += 1
-//        self.title = " "
+        
+        self.tabBar.tintColor = ThemeUtil.colorWithHexString(ThemeUtil.ACCENT_COLOR)
+        
         // 1、设置导航栏标题属性：设置标题颜色
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
@@ -65,8 +67,8 @@ class MainTabBarViewController: UITabBarController {
     
     //MARK: 对外接口
     
-    static func buildController() -> MainViewController{
-        let controller = ControllerUtil.loadViewControllerWithName("MainView", sbName: "Main") as! MainViewController
+    static func buildController() -> MainTabBarViewController{
+        let controller = ControllerUtil.loadViewControllerWithName("MainTabBar", sbName: "Main") as! MainTabBarViewController
         // does not need anim
         Defaults[.splashAnimated] = true
         return controller
