@@ -22,6 +22,8 @@ target 'GankMeizi' do
   # SDWebImage used in MWPhotoBrowser
   pod 'SDWebImage', '~>3.7'
   pod 'SwiftyUserDefaults'
+  pod 'Toast-Swift', '~> 1.3.0'
+
   # Pods for GankMeizi
 
   target 'GankMeiziTests' do

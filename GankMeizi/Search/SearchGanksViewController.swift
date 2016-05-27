@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import ObjectMapper
+import Toast_Swift
 
 class SearchGanksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -61,7 +62,11 @@ class SearchGanksViewController: UIViewController, UITableViewDelegate, UITableV
             }
             .driveNext  { (results) in
                 self.results = results
+                if self.results?.count == 0{
+                    self.view.makeToast("没有找到，换个关键词试试吧！", duration: 2, position: .Center)
+                }
                 self.resultsTableView.reloadData()
+                
             }
             .addDisposableTo(disposeBag)
     }

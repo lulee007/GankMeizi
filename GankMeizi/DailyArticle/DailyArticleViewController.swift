@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Toast_Swift
 
 class DailyArticleViewController: UIViewController,UITableViewDelegate {
     
@@ -33,24 +34,23 @@ class DailyArticleViewController: UIViewController,UITableViewDelegate {
             .rx_itemSelected
         .subscribeNext { (indexPath) in
             let sectionIndex = self.dataSource.items?.category![indexPath.section]
-
             let entity = self.dataSource.items?.results![sectionIndex!]![indexPath.item]
             let controller = WebViewController.buildControllerForArticle(entity!)
             self.navigationController?.pushViewController(controller, animated: true)
-            
-            
         }.addDisposableTo(disposeBag)
-        
         
         dailyArticleModel
             .getArticleByDate(date!)
             .map({ (entity) -> [DailyArticleEntity] in
                 return [entity]
             })
+            .doOnNext{
+                if !($0[0].error!) && $0[0].results == nil {
+                    self.view.makeToast("没有数据", duration: 4, position: .Center)
+                }
+            }
             .bindTo(tableView.rx_itemsWithDataSource(dataSource))
             .addDisposableTo(disposeBag)
-        
-        
     }
     
     //MARK: - UITableView Delegate

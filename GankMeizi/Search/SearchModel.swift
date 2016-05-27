@@ -38,7 +38,6 @@ class SearchModel: BaseModel {
             }
             return []
         }
-        
     }
     
 }
