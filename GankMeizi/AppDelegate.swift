@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = toShowViewController
         }else{
             toShowViewController = ControllerUtil.loadViewControllerWithName("MainTabBar", sbName: "Main")
-            DDLogDebug("加载Main")
+            DDLogDebug("加载MainTabBar")
             setupRootVCWithNC(toShowViewController)
         }
         
@@ -72,9 +72,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
+    //MARK: - 对外接口
+    
     func setupRootVCWithNC(rootVC:UIViewController)  {
         let navigationController = UINavigationController.init(rootViewController: rootVC)
         self.window?.rootViewController = navigationController
+    }
+    
+    static func getNavigationController() -> UINavigationController {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let navigationController = appDelegate.window?.rootViewController as! UINavigationController
+        return navigationController
     }
     
     

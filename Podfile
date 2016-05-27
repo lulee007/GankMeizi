@@ -17,6 +17,7 @@ target 'GankMeizi' do
   pod 'Moya/RxSwift'
   pod 'NJKWebViewProgress'
   pod 'ObjectMapper', '~> 1.3'
+  pod 'PageMenu'
   pod 'RxSwift',    '~> 2.0'
   pod 'RxCocoa',    '~> 2.0'
   # SDWebImage used in MWPhotoBrowser

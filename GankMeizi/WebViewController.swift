@@ -10,7 +10,7 @@ import UIKit
 import NJKWebViewProgress
 import RxSwift
 class WebViewController: UIViewController ,NJKWebViewProgressDelegate,UIWebViewDelegate{
-
+    
     @IBOutlet weak var webView: UIWebView!
     
     var webViewProgressView: NJKWebViewProgressView!
@@ -21,8 +21,11 @@ class WebViewController: UIViewController ,NJKWebViewProgressDelegate,UIWebViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.title = article?.desc
+        
+        self.webView.scalesPageToFit = true
+
         
         webViewProgress = NJKWebViewProgress()
         
@@ -41,20 +44,20 @@ class WebViewController: UIViewController ,NJKWebViewProgressDelegate,UIWebViewD
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.addSubview(webViewProgressView)
-
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-    webViewProgressView.removeFromSuperview()
+        webViewProgressView.removeFromSuperview()
     }
-
+    
     
     func webViewProgress(webViewProgress: NJKWebViewProgress!, updateProgress progress: Float) {
         print(progress)
         webViewProgressView.setProgress(progress, animated: true)
     }
-
+    
     //MARK: - Public API
     
     static func buildControllerForArticle(article: ArticleEntity) -> WebViewController{
@@ -62,5 +65,5 @@ class WebViewController: UIViewController ,NJKWebViewProgressDelegate,UIWebViewD
         controller.article = article
         return controller
     }
-
+    
 }

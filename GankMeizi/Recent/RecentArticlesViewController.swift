@@ -24,10 +24,10 @@ extension String {
         return boundingBox.height
     }
 }
-class MainViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, CHTCollectionViewDelegateWaterfallLayout {
+class RecentArticlesViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, CHTCollectionViewDelegateWaterfallLayout {
     
     let whiteSpace: CGFloat = 8.0
-    let articleModel = ArticleModel()
+    let articleModel = RecentArticlesModel()
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var articleCollectionView: UICollectionView!
@@ -116,8 +116,6 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         self.articleCollectionView.mj_footer = mjFooter
         self.articleCollectionView.mj_footer.hidden = true
         
-        
-        
     }
     
     // 注册 collection view cell
@@ -159,7 +157,7 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
                 }
             }
         })
-        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(MainViewController.imageTapped(_:)))
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(RecentArticlesViewController.imageTapped(_:)))
         cell.image.tag = indexPath.item
         cell.image.userInteractionEnabled = true
         cell.image.addGestureRecognizer(tapGestureRecognizer)
@@ -195,6 +193,12 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         
         // height = img.height+ text.height + text.paddingTop
         return CGSize.init(width: width, height: width + height + 10.0)
+    }
+    
+    static func buildController() -> RecentArticlesViewController{
+        let controller = ControllerUtil.loadViewControllerWithName("RecentArticles", sbName: "Main") as! RecentArticlesViewController
+        controller.title = "最新"
+        return controller
     }
     
     //MARK: 私有方法

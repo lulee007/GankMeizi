@@ -11,7 +11,7 @@
         <!--最新-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainView" id="BYZ-38-t0r" customClass="MainViewController" customModule="干货集中营" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecentArticles" id="BYZ-38-t0r" customClass="RecentArticlesViewController" customModule="干货集中营" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -42,17 +42,17 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="最新" image="time.png" id="TYC-q8-wlI"/>
                     <connections>
-                        <outlet property="articleCollectionView" destination="oTy-He-0Zk" id="LxP-OE-Jh6"/>
+                        <outlet property="articleCollectionView" destination="oTy-He-0Zk" id="p4t-rL-Oax"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="124" y="-1534"/>
         </scene>
-        <!--Daily Article View Controller-->
+        <!--每日干货-->
         <scene sceneID="pmJ-sk-i9J">
             <objects>
-                <viewController storyboardIdentifier="DailyArticle" id="Q8A-AG-B75" customClass="DailyArticleViewController" customModule="干货集中营" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DailyArticle" id="Q8A-AG-B75" userLabel="每日干货" customClass="DailyArticleViewController" customModule="干货集中营" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GDc-na-xcA"/>
                         <viewControllerLayoutGuide type="bottom" id="MkI-aB-nDW"/>
@@ -207,7 +207,7 @@
         <!--分类-->
         <scene sceneID="Chf-9C-WbE">
             <objects>
-                <viewController id="hUN-o2-7nE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Ganks" id="hUN-o2-7nE" customClass="GanksViewController" customModule="干货集中营" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W19-Me-iBO"/>
                         <viewControllerLayoutGuide type="bottom" id="dr5-2j-Mnq"/>
@@ -242,10 +242,10 @@
             </objects>
             <point key="canvasLocation" x="-712" y="-794"/>
         </scene>
-        <!--Search Ganks View Controller-->
+        <!--搜索干货-->
         <scene sceneID="3Qr-c8-mmz">
             <objects>
-                <viewController storyboardIdentifier="SearchResults" id="m1F-nX-P9c" customClass="SearchGanksViewController" customModule="干货集中营" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchResults" id="m1F-nX-P9c" userLabel="搜索干货" customClass="SearchGanksViewController" customModule="干货集中营" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VGq-1O-IQX"/>
                         <viewControllerLayoutGuide type="bottom" id="a4D-tk-ae9"/>
@@ -283,6 +283,23 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="biv-yh-Rfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--分类文章-->
+        <scene sceneID="tMh-pp-eiK">
+            <objects>
+                <tableViewController storyboardIdentifier="Articles" id="8uM-Pp-6xL" userLabel="分类文章" customClass="ArticlesViewController" customModule="干货集中营" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dyF-ud-GPv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="8uM-Pp-6xL" id="wxq-Zx-KnK"/>
+                            <outlet property="delegate" destination="8uM-Pp-6xL" id="syf-QD-j06"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i58-TF-cb0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>

@@ -11,7 +11,7 @@ import RxSwift
 import CocoaLumberjack
 import ObjectMapper
 
-class ArticleModel: BaseModel {
+class RecentArticlesModel: BaseModel {
     
     var articleEntities: [ArticleEntity]
     

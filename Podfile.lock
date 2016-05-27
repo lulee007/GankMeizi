@@ -34,6 +34,7 @@ PODS:
   - NJKWebViewProgress/Core (0.2.3)
   - NJKWebViewProgress/ProgressView (0.2.3)
   - ObjectMapper (1.3.0)
+  - PageMenu (1.2.9)
   - pop (1.0.9)
   - Result (2.0.0)
   - RxBlocking (2.5.0):
@@ -63,6 +64,7 @@ DEPENDENCIES:
   - Moya/RxSwift
   - NJKWebViewProgress
   - ObjectMapper (~> 1.3)
+  - PageMenu
   - RxBlocking (~> 2.0)
   - RxCocoa (~> 2.0)
   - RxSwift (~> 2.0)
@@ -96,6 +98,7 @@ SPEC CHECKSUMS:
   Moya: 4d526954c8afd79820991393d40d7d8af756ceee
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   ObjectMapper: 4eb08a726e9791a93b2632049951b56a7c17e471
+  PageMenu: ba19ff267f7a19e444e93c20a7847b78954a7011
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   Result: 9e75e1111c774c6ac594e14907b15057053a7959
   RxBlocking: 595d9ab56dde6b00beaa5aba40e95b150d2135f1
@@ -106,6 +109,6 @@ SPEC CHECKSUMS:
   SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
   Toast-Swift: 25c3d98db42dc70d9a77b5006ee000e0becb458e
 
-PODFILE CHECKSUM: c0e59780beb1fe8fe1b8dfb944ef885c2af1f6b2
+PODFILE CHECKSUM: 8e92add6e0a2efc07d8a1faf14ff76c8edc2e04b
 
 COCOAPODS: 1.0.0
