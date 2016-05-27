@@ -34,7 +34,10 @@ class SearchModel: BaseModel {
                     let date = DateUtil.stringToNSDate(dateComponents.joinWithSeparator("-") + "Z", formatter: "yyyy-MM-ddZ")
                     results.append((link.text!,date))
                 }
-                return results
+                return results.sort({ (l, r) -> Bool in
+                    let compareResult = l.date.compare(r.date)
+                    return compareResult == NSComparisonResult.OrderedDescending
+                })
             }
             return []
         }
