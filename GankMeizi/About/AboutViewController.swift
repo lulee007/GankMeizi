@@ -18,7 +18,7 @@ class AboutViewController: UIViewController {
         
         do{
             let aboutData = try String.init(contentsOfFile: dataPath!, encoding: NSUTF8StringEncoding)
-            let attrStr = try NSAttributedString.init(data: aboutData.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+            let attrStr = try NSAttributedString.init(data: aboutData.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options:[NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
             
             introduce.attributedText = attrStr
         }catch {
