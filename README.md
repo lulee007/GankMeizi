@@ -20,8 +20,9 @@ PS：关键词貌似比较少，只能搜索到很少的内容
 ![介绍页](Screenshots/gankio-1.gif)
 ![浏览妹纸](Screenshots/gankio-2.gif)  
 ![最新文章](Screenshots/gankio-3.gif)
-![搜索](Screenshots/gankio-search.gif)  
-![关于](Screenshots/gankio-about.gif)
+![分类](Screenshots/gankio-kinds.gif)  
+![搜索](Screenshots/gankio-search.gif)
+![关于](Screenshots/gankio-about.gif)  
 
 ## 开始
 
