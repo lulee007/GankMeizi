@@ -1,6 +1,20 @@
 # GankMeizi 干货集中营
 
-最近在抽空学习使用 Swift 结合 Rx 开发 iOS App  
+<p>最近在学习使用 Swift 结合 <a href="https://github.com/lulee007">RxSwift</a> 来开发 iOS APP 就拿 『gank.io』 来练练手，实现了<a href="http://gank.io">干货集中营</a>的一个 iOS 版本。由于水平有限，如果对项目有什么疑问欢迎与我联系：<a href="mailto:lulee007@live.com">lulee007@live.com</a></p>
+<i>干货集中营每日分享一张<b>漂亮妹子</b>图和一些技术干货，还有供大家中午休息的休闲视频。</i>
+<p/>
+<h3>设计与实现</h3>
+UI 设计、代码实现 -- 小灰灰
+<p/>github: <a href="https://github.com/lulee007">https://github.com/lulee007</a>
+<h3>数据来源</h3>
+<ul>
+<li>主要数据API：<a href="http://gank.io">http://gank.io/api</a>
+<p/>
+</li>
+<li>搜索：http://gank.io/search?q=xxx 解析 HTML 源码</li>
+PS：关键词貌似比较少，只能搜索到很少的内容
+</ul>
+<p/>
 
 ## 截图
 ![介绍页](Screenshots/gankio-1.gif)

@@ -15,6 +15,7 @@ UI 设计、代码实现 -- 小灰灰
 <p/>
 </li>
 <li>搜索：http://gank.io/search?q=xxx 解析 HTML 源码</li>
+PS：关键词貌似比较少，只能搜索到很少的内容
 </ul>
 <p/>
 <h3>使用的开源库</h3>
