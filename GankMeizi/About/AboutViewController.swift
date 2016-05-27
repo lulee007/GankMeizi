@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
 class AboutViewController: UIViewController {
     
     @IBOutlet weak var introduce: UITextView!
@@ -19,7 +20,6 @@ class AboutViewController: UIViewController {
             let aboutData = try String.init(contentsOfFile: dataPath!, encoding: NSUTF8StringEncoding)
             let attrStr = try NSAttributedString.init(data: aboutData.dataUsingEncoding(NSUnicodeStringEncoding, allowLossyConversion: true)!, options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
             
-//            let aboutHtml = NSAttributedString.init(string: aboutData, attributes: [NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType])
             introduce.attributedText = attrStr
         }catch {
             print(error)
@@ -29,6 +29,8 @@ class AboutViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.parentViewController?.title = "关于"
+        self.parentViewController?.navigationItem.rightBarButtonItem?.enabled = false
+        self.parentViewController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.clearColor()
     }
     
 }

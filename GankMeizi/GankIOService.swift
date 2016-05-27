@@ -8,6 +8,14 @@
 
 import Foundation
 import Moya
+
+class GankIO {
+    static let HOST = "http://gank.io"
+    static let PATH_API = "/api"
+    static let PATH_SEARCH = "/search"
+    
+}
+
 enum GankIOService {
     // 随机获取某类指定个数的数据
     case RandomByKindAndCount(kind:String,count:Int)
@@ -27,24 +35,30 @@ enum GankIOService {
     // 分页获取网站的 html 数据
     case HtmlByPage(page:Int,count:Int)
     
+    // 搜索
+    case Search(text: String)
+    
 }
 
 extension GankIOService: TargetType {
-    var baseURL: NSURL {return NSURL(string: "http://gank.io/api")!}
-    var path: String{
+    
+    var baseURL: NSURL {return NSURL(string: GankIO.HOST)!}
+    var path: String {
         switch self {
         case .RandomByKindAndCount(let kind,let count):
-            return "/random/data/\(kind)/\(count)"
+            return "\(GankIO.PATH_API)/random/data/\(kind)/\(count)"
         case .ByDay(let year, let month , let day):
-            return "/day/\(year)/\(month)/\(day)"
+            return "\(GankIO.PATH_API)/day/\(year)/\(month)/\(day)"
         case .HistoryDays:
-            return "/day/history"
+            return "\(GankIO.PATH_API)/day/history"
         case .ByPageAndKind(let kind,let page,let count):
-            return "/data/\(kind)/\(count)/\(page)"
+            return "\(GankIO.PATH_API)/data/\(kind)/\(count)/\(page)"
         case .HtmlByDay(let year, let month, let day):
-            return "/history/content/day/\(year)/\(month)/\(day)"
+            return "\(GankIO.PATH_API)/history/content/day/\(year)/\(month)/\(day)"
         case .HtmlByPage(let page, let count):
-            return "/history/content/\(count)/\(page)"
+            return "\(GankIO.PATH_API)/history/content/\(count)/\(page)"
+        case .Search(_):
+            return "\(GankIO.PATH_SEARCH)"
         }
     }
     
@@ -57,6 +71,8 @@ extension GankIOService: TargetType {
     
     var parameters: [String: AnyObject]? {
         switch self {
+        case .Search(let text):
+            return ["q":text]
         default:
             return nil
         }

@@ -13,8 +13,8 @@
 		A41318151CF3096C00E2FE93 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41318141CF3096C00E2FE93 /* DateUtil.swift */; };
 		A41318171CF362D400E2FE93 /* ThemeUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41318161CF362D400E2FE93 /* ThemeUtil.swift */; };
 		A420B8DF1CEEB6F20089C22A /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A420B8DD1CEEB6F20089C22A /* AppIcon@2x.png */; };
+		A42146AA1CF72E2E006A0F60 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42146A91CF72E2E006A0F60 /* SearchModel.swift */; };
 		A42383CC1CEEE27000CC9C1D /* GankIOService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383CB1CEEE27000CC9C1D /* GankIOService.swift */; };
-		A42383D01CEEF17700CC9C1D /* GankIOAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42383CF1CEEF17700CC9C1D /* GankIOAPI.swift */; };
 		A43F41C81CF5F47E006E93D1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F41C71CF5F47E006E93D1 /* AboutViewController.swift */; };
 		A43F41CC1CF6976E006E93D1 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43F41CB1CF6976E006E93D1 /* MainTabBarViewController.swift */; };
 		A43F41D51CF69F04006E93D1 /* about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A43F41D31CF69F04006E93D1 /* about@2x.png */; };
@@ -50,6 +50,9 @@
 		A4EFF1001CF6BBED0066D01E /* HtmlArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EFF0F91CF6BBED0066D01E /* HtmlArticleEntity.swift */; };
 		A4EFF1011CF6BBED0066D01E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EFF0FA1CF6BBED0066D01E /* WebViewController.swift */; };
 		A4EFF1031CF6E9390066D01E /* AboutData.txt in Resources */ = {isa = PBXBuildFile; fileRef = A4EFF1021CF6E9390066D01E /* AboutData.txt */; };
+		A4EFF1071CF72A210066D01E /* SearchGanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EFF1061CF72A210066D01E /* SearchGanksViewController.swift */; };
+		A4EFF10A1CF72AA80066D01E /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EFF1081CF72AA80066D01E /* SearchResultTableViewCell.swift */; };
+		A4EFF10B1CF72AA80066D01E /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4EFF1091CF72AA80066D01E /* SearchResultTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,8 +95,8 @@
 		A41318141CF3096C00E2FE93 /* DateUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		A41318161CF362D400E2FE93 /* ThemeUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeUtil.swift; sourceTree = "<group>"; };
 		A420B8DD1CEEB6F20089C22A /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		A42146A91CF72E2E006A0F60 /* SearchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		A42383CB1CEEE27000CC9C1D /* GankIOService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankIOService.swift; sourceTree = "<group>"; };
-		A42383CF1CEEF17700CC9C1D /* GankIOAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GankIOAPI.swift; sourceTree = "<group>"; };
 		A43F41C71CF5F47E006E93D1 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A43F41CB1CF6976E006E93D1 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		A43F41D31CF69F04006E93D1 /* about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about@2x.png"; sourceTree = "<group>"; };
@@ -135,6 +138,9 @@
 		A4EFF0F91CF6BBED0066D01E /* HtmlArticleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlArticleEntity.swift; sourceTree = "<group>"; };
 		A4EFF0FA1CF6BBED0066D01E /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		A4EFF1021CF6E9390066D01E /* AboutData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AboutData.txt; sourceTree = "<group>"; };
+		A4EFF1061CF72A210066D01E /* SearchGanksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchGanksViewController.swift; sourceTree = "<group>"; };
+		A4EFF1081CF72AA80066D01E /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		A4EFF1091CF72AA80066D01E /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		B5D0B2CFA5CA3AC7CBA26CF5 /* Pods_GankMeiziTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GankMeiziTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B93B1DD9B40CF6A0536E2B8D /* Pods-GankMeiziTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GankMeiziTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GankMeiziTests/Pods-GankMeiziTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,6 +218,7 @@
 		A46939171CE9FD88004A896A /* GankMeizi */ = {
 			isa = PBXGroup;
 			children = (
+				A4EFF1051CF720660066D01E /* Search */,
 				A43F41C61CF5F467006E93D1 /* About */,
 				A46939181CE9FD88004A896A /* AppDelegate.swift */,
 				A4EFF0F51CF6BBED0066D01E /* ArticleCollectionViewCell.swift */,
@@ -221,7 +228,6 @@
 				A4EFF0F71CF6BBED0066D01E /* BaseEntity.swift */,
 				A4EFF0F81CF6BBED0066D01E /* BaseModel.swift */,
 				A4CC777C1CF48946007A5EC0 /* DailyArticle */,
-				A42383CF1CEEF17700CC9C1D /* GankIOAPI.swift */,
 				A42383CB1CEEE27000CC9C1D /* GankIOService.swift */,
 				A4EFF0F91CF6BBED0066D01E /* HtmlArticleEntity.swift */,
 				A46939241CE9FD88004A896A /* Info.plist */,
@@ -325,6 +331,17 @@
 				A4EFF0EE1CF6B5FA0066D01E /* MainViewController.swift */,
 			);
 			path = Recent;
+			sourceTree = "<group>";
+		};
+		A4EFF1051CF720660066D01E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A4EFF1061CF72A210066D01E /* SearchGanksViewController.swift */,
+				A4EFF1081CF72AA80066D01E /* SearchResultTableViewCell.swift */,
+				A4EFF1091CF72AA80066D01E /* SearchResultTableViewCell.xib */,
+				A42146A91CF72E2E006A0F60 /* SearchModel.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		E3BFD0FFD39039056EABA8EA /* Pods */ = {
@@ -460,6 +477,7 @@
 				A4CC77861CF4A29C007A5EC0 /* DailyArticleTableViewCell.xib in Resources */,
 				A420B8DF1CEEB6F20089C22A /* AppIcon@2x.png in Resources */,
 				A43F41D61CF69F04006E93D1 /* about@3x.png in Resources */,
+				A4EFF10B1CF72AA80066D01E /* SearchResultTableViewCell.xib in Resources */,
 				A46939231CE9FD88004A896A /* LaunchScreen.storyboard in Resources */,
 				A43F41DE1CF6A175006E93D1 /* time@3x.png in Resources */,
 				A469398B1CEDA32D004A896A /* Splash.storyboard in Resources */,
@@ -622,11 +640,14 @@
 				A4EFF0FC1CF6BBED0066D01E /* ArticleCollectionViewCell.swift in Sources */,
 				A469398D1CEDA5DB004A896A /* SplashViewController.swift in Sources */,
 				A43F41CC1CF6976E006E93D1 /* MainTabBarViewController.swift in Sources */,
+				A4EFF10A1CF72AA80066D01E /* SearchResultTableViewCell.swift in Sources */,
 				A41318151CF3096C00E2FE93 /* DateUtil.swift in Sources */,
 				A4EFF0F21CF6B5FA0066D01E /* ArticleModel.swift in Sources */,
+				A4EFF1071CF72A210066D01E /* SearchGanksViewController.swift in Sources */,
 				A46939191CE9FD88004A896A /* AppDelegate.swift in Sources */,
 				A4EFF0FF1CF6BBED0066D01E /* BaseModel.swift in Sources */,
 				A4CC777F1CF48A7D007A5EC0 /* DailyArticleEntity.swift in Sources */,
+				A42146AA1CF72E2E006A0F60 /* SearchModel.swift in Sources */,
 				A4EFF0F31CF6B5FA0066D01E /* MainViewController.swift in Sources */,
 				A4EFF0FE1CF6BBED0066D01E /* BaseEntity.swift in Sources */,
 				A4CC77801CF48A7D007A5EC0 /* DailyArticleModel.swift in Sources */,
@@ -636,7 +657,6 @@
 				A4EFF0FD1CF6BBED0066D01E /* ArticleEntity.swift in Sources */,
 				A458DB131CEDD3D200563998 /* LoggerUtil.swift in Sources */,
 				A42383CC1CEEE27000CC9C1D /* GankIOService.swift in Sources */,
-				A42383D01CEEF17700CC9C1D /* GankIOAPI.swift in Sources */,
 				A46939921CEDB866004A896A /* UserDefaultsUtil.swift in Sources */,
 				A46939901CEDA70B004A896A /* ControllerUtil.swift in Sources */,
 			);

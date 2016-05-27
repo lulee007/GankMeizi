@@ -80,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52C-1B-dRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2339" y="246"/>
+            <point key="canvasLocation" x="939" y="350"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="ahX-bZ-Bv8">
@@ -113,6 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qaf-X8-4wG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-596" y="258"/>
         </scene>
         <!--关于-->
         <scene sceneID="wYC-qn-JkS">
@@ -240,6 +241,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izh-M2-s3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-712" y="-794"/>
+        </scene>
+        <!--Search Ganks View Controller-->
+        <scene sceneID="3Qr-c8-mmz">
+            <objects>
+                <viewController storyboardIdentifier="SearchResults" id="m1F-nX-P9c" customClass="SearchGanksViewController" customModule="干货集中营" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VGq-1O-IQX"/>
+                        <viewControllerLayoutGuide type="bottom" id="a4D-tk-ae9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="boe-tt-7PT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTr-EZ-ds2">
+                                <rect key="frame" x="0.0" y="20" width="600" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="lor-h8-Vcd"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TkA-uL-EBh">
+                                <rect key="frame" x="0.0" y="60" width="600" height="540"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TkA-uL-EBh" firstAttribute="top" secondItem="zTr-EZ-ds2" secondAttribute="bottom" id="8Sv-bA-Ge1"/>
+                            <constraint firstItem="TkA-uL-EBh" firstAttribute="leading" secondItem="boe-tt-7PT" secondAttribute="leading" id="EkX-R6-phb"/>
+                            <constraint firstItem="zTr-EZ-ds2" firstAttribute="leading" secondItem="boe-tt-7PT" secondAttribute="leading" id="l9z-tc-Cze"/>
+                            <constraint firstItem="a4D-tk-ae9" firstAttribute="top" secondItem="TkA-uL-EBh" secondAttribute="bottom" id="lZp-nA-LG5"/>
+                            <constraint firstItem="zTr-EZ-ds2" firstAttribute="top" secondItem="VGq-1O-IQX" secondAttribute="bottom" id="oOg-rX-H1C"/>
+                            <constraint firstItem="zTr-EZ-ds2" firstAttribute="width" secondItem="boe-tt-7PT" secondAttribute="width" id="wLZ-x2-d7J"/>
+                            <constraint firstItem="TkA-uL-EBh" firstAttribute="width" secondItem="boe-tt-7PT" secondAttribute="width" id="wb2-32-Urm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resultsTableView" destination="TkA-uL-EBh" id="cfO-Bb-gWk"/>
+                        <outlet property="searchBarContainer" destination="zTr-EZ-ds2" id="poh-MZ-8Sg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="biv-yh-Rfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

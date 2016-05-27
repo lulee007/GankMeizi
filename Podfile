@@ -11,6 +11,7 @@ target 'GankMeizi' do
   pod 'DZNEmptyDataSet'
   pod 'EAIntroView', '~> 2.8.0'
   pod 'IDMPhotoBrowser'
+  pod 'Kanna', '~> 1.0.0'
   pod 'MJRefresh'
   pod 'Moya'
   pod 'Moya/RxSwift'

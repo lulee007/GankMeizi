@@ -18,6 +18,7 @@ PODS:
     - DACircularProgress
     - pop
     - SDWebImage
+  - Kanna (1.0.6)
   - MJRefresh (3.1.0)
   - Moya (6.4.0):
     - Moya/Core (= 6.4.0)
@@ -55,6 +56,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet
   - EAIntroView (~> 2.8.0)
   - IDMPhotoBrowser
+  - Kanna (~> 1.0.0)
   - MJRefresh
   - Moya
   - Moya/RxSwift
@@ -87,6 +89,7 @@ SPEC CHECKSUMS:
   EAIntroView: e948c83e642f30010d427e643c18a6f2b529afed
   EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
   IDMPhotoBrowser: b574fe3229754e701f32df271afbc4ac7e4e1997
+  Kanna: 9f30945bbd293a609f698ea164687ccc0990ff60
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   Moya: 4d526954c8afd79820991393d40d7d8af756ceee
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
@@ -100,6 +103,6 @@ SPEC CHECKSUMS:
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
 
-PODFILE CHECKSUM: 412f7eba70624660567b531ce38d4dda9cff2d39
+PODFILE CHECKSUM: 531c57a068caf331b80a49370cb2467617827bc5
 
 COCOAPODS: 1.0.0

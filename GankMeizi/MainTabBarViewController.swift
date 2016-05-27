@@ -8,10 +8,17 @@
 
 import UIKit
 import SwiftyUserDefaults
+import RxSwift
+import RxCocoa
 
 class MainTabBarViewController: UITabBarController {
-
+    
+    var searchText: Driver<String>?
+    var disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         Defaults[.launchCount] += 1
         
         self.tabBar.tintColor = ThemeUtil.colorWithHexString(ThemeUtil.ACCENT_COLOR)
@@ -33,15 +40,27 @@ class MainTabBarViewController: UITabBarController {
         caption.font = UIFont(name: "GillSans-Bold", size: 18)
         caption.sizeToFit()
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: caption)
-        super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: #selector(showSearchView))
+        
+        self.title = "最新"
+        
         launchAnimation()
-
-        // Do any additional setup after loading the view.
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    //MARK: tabbar
+    
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        
+        self.title = item.title
+        if item.title == "关于"{
+            self.navigationItem.rightBarButtonItem?.enabled = false
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.clearColor()
+        }else{
+            self.navigationItem.rightBarButtonItem?.enabled = true
+            self.navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
+        }
     }
     
     // MARK: 启动画面过渡效果
@@ -64,6 +83,13 @@ class MainTabBarViewController: UITabBarController {
             }
         }
     }
+    var model: SearchModel!
+    func showSearchView()  {
+        model = SearchModel()
+        let searchController = ControllerUtil.loadViewControllerWithName("SearchResults", sbName: "Main")
+        
+        self.navigationController?.pushViewController(searchController, animated: true)
+    }
     
     //MARK: 对外接口
     
@@ -73,5 +99,5 @@ class MainTabBarViewController: UITabBarController {
         Defaults[.splashAnimated] = true
         return controller
     }
-
+    
 }

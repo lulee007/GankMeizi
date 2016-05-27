@@ -44,16 +44,7 @@ class MainViewController: UIViewController,UICollectionViewDataSource,UICollecti
         
 
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.parentViewController?.title = "最新"
-    }
-    
-    override  func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
-    }
-    
     //MARK： setup uiview
     
     func setupCollectionView()  {
