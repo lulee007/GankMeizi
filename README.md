@@ -3,9 +3,12 @@
 最近在抽空学习使用 Swift 结合 Rx 开发 iOS App  
 
 ## 截图
-![截图1](Screenshots/gankio-1.gif)
-![截图2](Screenshots/gankio-2.gif)  
-![截图3](Screenshots/gankio-3.gif)
+![介绍页](Screenshots/gankio-1.gif)
+![浏览妹纸](Screenshots/gankio-2.gif)  
+![最新文章](Screenshots/gankio-3.gif)
+![搜索](Screenshots/gankio-search.gif)  
+![关于](Screenshots/gankio-about.gif)
+
 ## 开始
 
 从最开的的 ruby 安装，
@@ -78,5 +81,4 @@ TO BE CONTINUE ...
 
 * pop (1.0.9)  
   `IDMPhotoBrowser`依赖项
-
-## 感谢
+* ...
