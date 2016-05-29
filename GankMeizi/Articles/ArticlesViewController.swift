@@ -30,7 +30,7 @@ class ArticlesViewController: UITableViewController {
     }
     
     func setupTableView()  {
-        
+        let tipsView  = AppDelegate.getNavigationController().view
         let nib = UINib(nibName: "SearchResultTableViewCell", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: articleType!)
         
@@ -50,14 +50,14 @@ class ArticlesViewController: UITableViewController {
                             self.tableView.mj_footer.endRefreshingWithNoMoreData()
                         }
                         self.tableView.reloadData()
+                        self.tableView.mj_header.endRefreshing()
                     },
                     onError: { (error) in
                         self.tableView.mj_header.endRefreshing()
-                        ErrorTipsHelper.sharedInstance.requestError(self.view)
+                        ErrorTipsHelper.sharedInstance.requestError(tipsView!)
                         print(error)
                     },
                     onCompleted: {
-                        self.tableView.mj_header.endRefreshing()
                         
                     },
                     onDisposed: {
@@ -83,9 +83,10 @@ class ArticlesViewController: UITableViewController {
                         }
                     },
                     onError: { (error) in
+                        // self.view equals tableview in tableview controller ?
+                        // use rootcontroller view
+                        ErrorTipsHelper.sharedInstance.requestError(tipsView!)
                         self.tableView.mj_footer.endRefreshing()
-                        ErrorTipsHelper.sharedInstance.requestError(self.view)
-
                         print(error)
                     },
                     onCompleted: {

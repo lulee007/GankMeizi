@@ -100,9 +100,6 @@ class RecentArticlesViewController: UIViewController,UICollectionViewDataSource,
                 return
             }
             self.articleModel.loadMore()
-                .observeOn(MainScheduler.instance)
-                .doOnCompleted({
-                })
                 .subscribe(
                     onNext: { (entities) in
                         if entities.isEmpty {
@@ -114,8 +111,8 @@ class RecentArticlesViewController: UIViewController,UICollectionViewDataSource,
                         
                     },
                     onError: { (error) in
+                        ErrorTipsHelper.sharedInstance.requestError(self.view)
                         self.articleCollectionView.mj_footer.endRefreshing()
-                        
                         print(error)
                     },
                     onCompleted: {
