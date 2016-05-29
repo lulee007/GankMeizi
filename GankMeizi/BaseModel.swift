@@ -10,6 +10,8 @@ import Foundation
 import Moya
 import CocoaLumberjack
 import RxSwift
+import ObjectMapper
+
 class BaseModel {
     var provider: RxMoyaProvider<GankIOService>
     
@@ -37,5 +39,9 @@ class BaseModel {
         }
         
         self.provider = RxMoyaProvider<GankIOService>(plugins: [networkActivityPlugin ,NetworkLoggerPlugin.init()])
+    }
+    
+    func parseObject<T: Mappable>(reponse: Response) throws-> T {
+        return try Mapper<T>().map(reponse.mapString())!
     }
 }

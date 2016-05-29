@@ -12,7 +12,7 @@ import RxSwift
 import MJRefresh
 
 class ArticlesViewController: UITableViewController {
-
+    
     var articleType: String?
     var model: ArticlesModel?
     var disposeBag = DisposeBag()
@@ -21,8 +21,12 @@ class ArticlesViewController: UITableViewController {
         super.viewDidLoad()
         model = ArticlesModel(type: articleType!)
         setupTableView()
-        self.tableView.mj_header.executeRefreshingCallback()
+        self.tableView.mj_header.beginRefreshing()
 
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     func setupTableView()  {
@@ -36,37 +40,59 @@ class ArticlesViewController: UITableViewController {
                 return
             }
             self.model?.refresh()
-            .doOnCompleted({ 
-                self.tableView.mj_header.endRefreshing()
-            })
-            .subscribeNext({ (results) in
-                if results.count > 0 {
-                    self.tableView.mj_footer.hidden = false
-                    self.tableView.mj_footer.resetNoMoreData()
-                }
-                self.tableView.reloadData()
-            })
-            .addDisposableTo(self.disposeBag)
+                
+                .subscribe(
+                    onNext: { (results) in
+                        if results.count > 0 {
+                            self.tableView.mj_footer.hidden = false
+                            self.tableView.mj_footer.resetNoMoreData()
+                        }else{
+                            self.tableView.mj_footer.endRefreshingWithNoMoreData()
+                        }
+                        self.tableView.reloadData()
+                    },
+                    onError: { (error) in
+                        self.tableView.mj_header.endRefreshing()
+                        ErrorTipsHelper.sharedInstance.requestError(self.view)
+                        print(error)
+                    },
+                    onCompleted: {
+                        self.tableView.mj_header.endRefreshing()
+                        
+                    },
+                    onDisposed: {
+                        
+                })
+                
+                .addDisposableTo(self.disposeBag)
         })
         
-        tableView.mj_footer = MJRefreshAutoStateFooter(refreshingBlock: { 
+        tableView.mj_footer = MJRefreshAutoStateFooter(refreshingBlock: {
             if self.tableView.mj_header.isRefreshing() {
                 self.tableView.mj_footer.endRefreshing()
                 return
             }
             self.model?.loadMore()
-                .doOnCompleted({
-                    self.tableView.mj_footer.endRefreshing()
+                .subscribe(
+                    onNext: { (results) in
+                        if results.count == 0{
+                            self.tableView.mj_footer.endRefreshingWithNoMoreData()
+                        }else{
+                            self.tableView.reloadData()
+                            self.tableView.mj_footer.endRefreshing()
+                        }
+                    },
+                    onError: { (error) in
+                        self.tableView.mj_footer.endRefreshing()
+                        ErrorTipsHelper.sharedInstance.requestError(self.view)
+
+                        print(error)
+                    },
+                    onCompleted: {
+                    },
+                    onDisposed: {
                 })
-            .subscribeNext({ (results) in
-                if results.count == 0{
-                    self.tableView.mj_footer.endRefreshingWithNoMoreData()
-                }else{
-                    self.tableView.reloadData()
-                    self.tableView.mj_footer.endRefreshing()
-                }
-            })
-            .addDisposableTo(self.disposeBag)
+                .addDisposableTo(self.disposeBag)
         })
         tableView.mj_footer.hidden = true
     }

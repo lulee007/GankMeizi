@@ -14,6 +14,7 @@ import MJRefresh
 import CocoaLumberjack
 import SDWebImage
 import IDMPhotoBrowser
+import Toast_Swift
 
 extension String {
     func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
@@ -42,9 +43,9 @@ class RecentArticlesViewController: UIViewController,UICollectionViewDataSource,
         //refresh
         self.articleCollectionView.mj_header.executeRefreshingCallback()
         
-
-    }
         
+    }
+    
     //MARK： setup uiview
     
     func setupCollectionView()  {
@@ -69,18 +70,22 @@ class RecentArticlesViewController: UIViewController,UICollectionViewDataSource,
                 return
             }
             self.articleModel.refresh()
-                .doOnCompleted({
-                    self.articleCollectionView.mj_header.endRefreshing()
-                })
-                .subscribe(onNext: { (entities) in
-                    self.articleCollectionView.mj_footer.resetNoMoreData()
-                    self.articleCollectionView.reloadData()
-                    
-                    }, onError: { (error) in
+                
+                .subscribe(
+                    onNext: { (entities) in
+                        self.articleCollectionView.mj_footer.resetNoMoreData()
+                        self.articleCollectionView.reloadData()
+                    },
+                    onError: { (error) in
                         print(error)
-                    }, onCompleted: {
+                        ErrorTipsHelper.sharedInstance.requestError(self.view)
+                        self.articleCollectionView.mj_header.endRefreshing()
+                    },
+                    onCompleted: {
+                        self.articleCollectionView.mj_header.endRefreshing()
                         DDLogDebug("on complated")
-                    }, onDisposed: {
+                    },
+                    onDisposed: {
                         
                 })
                 .addDisposableTo(self.disposeBag)
@@ -97,17 +102,26 @@ class RecentArticlesViewController: UIViewController,UICollectionViewDataSource,
             self.articleModel.loadMore()
                 .observeOn(MainScheduler.instance)
                 .doOnCompleted({
-                    self.articleCollectionView.mj_footer.endRefreshing()
                 })
-                .subscribe(onNext: { (entities) in
-                    self.articleCollectionView.mj_footer.endRefreshingWithNoMoreData()
-                    self.articleCollectionView.reloadData()
-                    
-                    }, onError: { (error) in
+                .subscribe(
+                    onNext: { (entities) in
+                        if entities.isEmpty {
+                            self.articleCollectionView.mj_footer.endRefreshingWithNoMoreData()
+                        }else {
+                            self.articleCollectionView.mj_footer.endRefreshing()
+                        }
+                        self.articleCollectionView.reloadData()
+                        
+                    },
+                    onError: { (error) in
+                        self.articleCollectionView.mj_footer.endRefreshing()
+                        
                         print(error)
-                    }, onCompleted: {
+                    },
+                    onCompleted: {
                         DDLogDebug("on complated")
-                    }, onDisposed: {
+                    },
+                    onDisposed: {
                         
                 })
                 .addDisposableTo(self.disposeBag)

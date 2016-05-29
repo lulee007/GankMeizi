@@ -11,6 +11,10 @@ import RxSwift
 import ObjectMapper
 class ArticlesModel: BaseModel {
     
+    enum GankError: ErrorType{
+        case ParseObjError
+    }
+    
     var items: [ArticleEntity]?
     var articleType: String?
     
@@ -27,23 +31,36 @@ class ArticlesModel: BaseModel {
             .doOnNext { (results) in
                 self.page = 1
                 self.items = results
-        }
+            }
+            .observeOn(MainScheduler.instance)
     }
     
     func loadMore() -> Observable<[ArticleEntity]> {
         return getArticles(page + 1)
-        .doOnNext({ (results) in
-            self.page += 1
-            self.items! += results
-        })
+            .doOnNext({ (results) in
+                if !results.isEmpty{
+                    self.page += 1
+                    self.items! += results
+                }
+            })
+            .observeOn(MainScheduler.instance)
     }
     
     func getArticles(page: Int = 1) -> Observable<[ArticleEntity]> {
-        return   self.provider.request(GankIOService.ByPageAndKind(kind: self.articleType!, page: page, count: self.offset))
+        return   self.provider
+            .request(GankIOService.ByPageAndKind(kind: self.articleType!, page: page, count: self.offset))
+            .filterStatusCodes(200...209)
+            .mapString()
+            
             .map { (response) -> [ArticleEntity] in
-                let result = Mapper<BaseEntity<ArticleEntity>>().map(String(data: response.data,encoding: NSUTF8StringEncoding))
-                return (result?.results)!
+                
+                if let result = Mapper<BaseEntity<ArticleEntity>>().map(response){
+                    return result.results!
+                }else{
+                    throw NSError(domain: "parse json error", code: -1, userInfo: ["json":response])
+                }
         }
+        
     }
     
 }

@@ -29,8 +29,7 @@ class RecentArticlesModel: BaseModel {
     
     /* 分页获取更多 */
     func loadMore() -> Observable<[ArticleEntity]> {
-        page += 1
-        return getArticleInfoByPage(page)
+        return getArticleInfoByPage(page + 1)
     }
     
     //MARK: private method
@@ -41,16 +40,26 @@ class RecentArticlesModel: BaseModel {
             .zip(
                 provider
                     .request(GankIOService.ByPageAndKind(kind: "福利", page: page, count: self.offset))
+                    .filterStatusCodes(200...201)
                     .observeOn(backgroundWorkScheduler)
                     .map({ (response) -> [ArticleEntity] in
-                        let result = Mapper<BaseEntity<ArticleEntity>>().map(String(data: response.data,encoding:  NSUTF8StringEncoding))
-                        return (result?.results)!
+                        
+                        if let result = Mapper<BaseEntity<ArticleEntity>>().map(String(data: response.data,encoding:  NSUTF8StringEncoding)){
+                            return result.results!
+                        }else{
+                            throw NSError(domain: "parse json error", code: -1, userInfo: ["json":response])
+                        }
                     }),
-                provider.request(GankIOService.ByPageAndKind(kind: "休息视频", page: page, count: self.offset))
+                provider
+                    .request(GankIOService.ByPageAndKind(kind: "休息视频", page: page, count: self.offset))
+                    .filterStatusCodes(200...201)
                     .observeOn(backgroundWorkScheduler)
                     .map({ (response) -> [ArticleEntity] in
-                        let result = Mapper<BaseEntity<ArticleEntity>>().map(String(data: response.data,encoding:  NSUTF8StringEncoding))
-                        return (result?.results)!
+                        if let result = Mapper<BaseEntity<ArticleEntity>>().map(String(data: response.data,encoding:  NSUTF8StringEncoding)){
+                            return result.results!
+                        }else{
+                            throw NSError(domain: "parse json error", code: -1, userInfo: ["json":response])
+                        }
                     }),
                 resultSelector: { (girls, videos) -> [ArticleEntity] in
                     for item in girls{
@@ -60,22 +69,21 @@ class RecentArticlesModel: BaseModel {
                 }
             )
             .doOnNext({ (entities) in
-                if entities.isEmpty{
-                    self.page -= 1
-                }else{
-                    if self.page == 1{
+                if !entities.isEmpty{
+                    if page == 1{
                         // new or refresh data
                         self.articleEntities = entities
                     }else{
                         self.articleEntities += entities
+                        self.page = page
+                        
                     }
-                    self.page += 1
                 }
             })
             .observeOn(MainScheduler.instance)
     }
     
-    func getFirstVideoDescByPublishTime(videos: [ArticleEntity],publishedAt:NSDate) -> String {
+    private func getFirstVideoDescByPublishTime(videos: [ArticleEntity],publishedAt:NSDate) -> String {
         var videoDesc = ""
         for item in videos {
             if item.publishedAt == nil {
