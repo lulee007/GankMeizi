@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (3.4.0)
-  - AMScrollingNavbar (2.0.14)
   - CHTCollectionViewWaterfallLayout/Swift (0.9.4)
   - CocoaLumberjack/Core (2.3.0)
   - CocoaLumberjack/Default (2.3.0):
@@ -52,7 +51,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
-  - AMScrollingNavbar (~> 2.0.1)
   - CHTCollectionViewWaterfallLayout/Swift (from `git@github.com:chiahsien/CHTCollectionViewWaterfallLayout.git`, branch `develop`)
   - CocoaLumberjack/Swift
   - DZNEmptyDataSet
@@ -85,7 +83,6 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
-  AMScrollingNavbar: be1de69f46cea4667026400db6cb22e783f9533d
   CHTCollectionViewWaterfallLayout: db74be9135826d285f45ff163fd090e57c99fc50
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
@@ -109,6 +106,6 @@ SPEC CHECKSUMS:
   SwiftyUserDefaults: e7c8197a9d4068702e7f2406a968cae413b8de27
   Toast-Swift: 25c3d98db42dc70d9a77b5006ee000e0becb458e
 
-PODFILE CHECKSUM: 8e92add6e0a2efc07d8a1faf14ff76c8edc2e04b
+PODFILE CHECKSUM: 8c39a3f1ea09430d4be8c71a95e892db2da6d0f4
 
 COCOAPODS: 1.0.0

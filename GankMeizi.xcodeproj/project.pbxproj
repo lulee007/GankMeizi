@@ -114,7 +114,7 @@
 		A43F41DA1CF6A175006E93D1 /* time@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "time@3x.png"; sourceTree = "<group>"; };
 		A458DB121CEDD3D200563998 /* LoggerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerUtil.swift; sourceTree = "<group>"; };
 		A458DB181CEEAFF000563998 /* SplashTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SplashTitle@2x.png"; sourceTree = "<group>"; };
-		A46939151CE9FD88004A896A /* 干货集中营.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "干货集中营.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A46939151CE9FD88004A896A /* GankMeizi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GankMeizi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A46939181CE9FD88004A896A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A469391D1CE9FD88004A896A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A469391F1CE9FD88004A896A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +130,7 @@
 		A469398C1CEDA5DB004A896A /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		A469398F1CEDA70B004A896A /* ControllerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerUtil.swift; sourceTree = "<group>"; };
 		A46939911CEDB866004A896A /* UserDefaultsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtil.swift; sourceTree = "<group>"; };
+		A495A46F1CFD3461003FCC42 /* GankMeizi copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GankMeizi copy-Info.plist"; path = "/Users/luxiaohui/MyData/data/github/ios/GankMeizi/GankMeizi copy-Info.plist"; sourceTree = "<absolute>"; };
 		A4CC777D1CF48A7D007A5EC0 /* DailyArticleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyArticleEntity.swift; sourceTree = "<group>"; };
 		A4CC777E1CF48A7D007A5EC0 /* DailyArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyArticleModel.swift; sourceTree = "<group>"; };
 		A4CC77811CF48B02007A5EC0 /* DailyArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyArticleViewController.swift; sourceTree = "<group>"; };
@@ -219,13 +220,14 @@
 				A46939161CE9FD88004A896A /* Products */,
 				E3BFD0FFD39039056EABA8EA /* Pods */,
 				47F7631A9E738CD1ADB06CFA /* Frameworks */,
+				A495A46F1CFD3461003FCC42 /* GankMeizi copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		A46939161CE9FD88004A896A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A46939151CE9FD88004A896A /* 干货集中营.app */,
+				A46939151CE9FD88004A896A /* GankMeizi.app */,
 				A46939291CE9FD88004A896A /* GankMeiziTests.xctest */,
 				A46939341CE9FD88004A896A /* GankMeiziUITests.xctest */,
 			);
@@ -398,7 +400,7 @@
 			);
 			name = GankMeizi;
 			productName = GankMeizi;
-			productReference = A46939151CE9FD88004A896A /* 干货集中营.app */;
+			productReference = A46939151CE9FD88004A896A /* GankMeizi.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A46939281CE9FD88004A896A /* GankMeiziTests */ = {
@@ -454,7 +456,7 @@
 				TargetAttributes = {
 					A46939141CE9FD88004A896A = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 786JTEL4KV;
+						DevelopmentTeam = 6KJGDD679J;
 					};
 					A46939281CE9FD88004A896A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -827,13 +829,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GankMeizi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.handsmap.GankMeizi;
-				PRODUCT_NAME = "干货集中营";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lulee007.GankMeizi;
+				PRODUCT_NAME = GankMeizi;
 				PROVISIONING_PROFILE = "";
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 			};
 			name = Debug;
 		};
@@ -844,13 +848,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GankMeizi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.handsmap.GankMeizi;
-				PRODUCT_NAME = "干货集中营";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lulee007.GankMeizi;
+				PRODUCT_NAME = GankMeizi;
 				PROVISIONING_PROFILE = "";
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 			};
 			name = Release;
 		};

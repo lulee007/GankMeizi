@@ -5,7 +5,7 @@ target 'GankMeizi' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   pod 'Alamofire', '~> 3.4'
-  pod 'AMScrollingNavbar', '~> 2.0.1'
+  # pod 'AMScrollingNavbar', '~> 2.0.1'
   pod 'CHTCollectionViewWaterfallLayout/Swift', :git => 'git@github.com:chiahsien/CHTCollectionViewWaterfallLayout.git', :branch => 'develop'
   pod 'CocoaLumberjack/Swift'
   pod 'DZNEmptyDataSet'
