@@ -1,6 +1,6 @@
 # GankMeizi 干货集中营
 
-<p>最近在学习使用 Swift 结合 <a href="https://github.com/lulee007">RxSwift</a> 来开发 iOS APP 就拿 『gank.io』 来练练手，实现了<a href="http://gank.io">干货集中营</a>的一个 iOS 版本。由于水平有限，如果对项目有什么疑问欢迎与我联系：<a href="mailto:lulee007@live.com">lulee007@live.com</a></p>
+<p>最近在学习使用 Swift 结合 <a href="https://github.com/lulee007">RxSwift</a> 来开发 iOS APP 就拿 『gank.io』 来练练手，实现了<a href="http://gank.io">干货集中营</a>的一个 iOS 版本。由于水平有限，如果对项目有什么建议或者指教欢迎与我联系：<a href="mailto:lulee007@live.com">lulee007@live.com</a></p>
 <i>干货集中营每日分享一张<b>漂亮妹子</b>图和一些技术干货，还有供大家中午休息的休闲视频。</i>
 <p/>
 <h3>设计与实现</h3>
@@ -24,11 +24,11 @@ PS：关键词貌似比较少，只能搜索到很少的内容
 ![搜索](Screenshots/gankio-search.gif)
 ![关于](Screenshots/gankio-about.gif)  
 
-## 开始
-
-从最开的的 ruby 安装，
-
-## cocopods 和 carthage 安装与对比
+## 特性
+* 采用了很多的开源类库
+* 最新干货配有美女图片
+* 提供干货分类查看
+* 提供干货搜索功能
 
 ## 设计工具与参考
 
