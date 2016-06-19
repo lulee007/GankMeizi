@@ -1,7 +1,7 @@
 # GankMeizi 干货集中营
 
 <p>最近在学习使用 Swift 结合 <a href="https://github.com/lulee007">RxSwift</a> 来开发 iOS APP 就拿 『gank.io』 来练练手，实现了<a href="http://gank.io">干货集中营</a>的一个 iOS 版本。由于水平有限，如果对项目有什么建议或者指教欢迎与我联系：<a href="mailto:lulee007@live.com">lulee007@live.com</a></p>
-<i>干货集中营每日分享一张<b>漂亮妹子</b>图和一些技术干货，还有供大家中午休息的休闲视频。</i>
+<i>『干货集中营』每日分享一张<b>漂亮妹子</b>图和一些技术干货，还有供大家中午休息的休闲视频。</i>
 <p/>
 <h3>设计与实现</h3>
 UI 设计、代码实现 -- 小灰灰
@@ -41,7 +41,8 @@ PS：关键词貌似比较少，只能搜索到很少的内容
 * [通过LaunchScreen自定义启动动画
 ](http://www.jianshu.com/p/2f1149269cd0)  
 这里将启动放到了`- (void)viewDidLoad;`里面  ，如果放到`- (void)viewDidAppear:(BOOL)animated;`会有闪白屏  
-* [Carthage 初探：四大优势与四大劣势](http://imtx.me/archives/1939.html)
+* [Carthage 初探：四大优势与四大劣势](http://imtx.me/archives/1939.html)  
+
 ### 设计工具
 
 * [Materail Design Color](http://www.materialpalette.com/)  

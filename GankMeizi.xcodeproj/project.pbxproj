@@ -38,6 +38,7 @@
 		A469398D1CEDA5DB004A896A /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A469398C1CEDA5DB004A896A /* SplashViewController.swift */; };
 		A46939901CEDA70B004A896A /* ControllerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A469398F1CEDA70B004A896A /* ControllerUtil.swift */; };
 		A46939921CEDB866004A896A /* UserDefaultsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46939911CEDB866004A896A /* UserDefaultsUtil.swift */; };
+		A48C039D1D16C87700361BD7 /* MyDateFormatTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48C039C1D16C87700361BD7 /* MyDateFormatTransform.swift */; };
 		A4CC777F1CF48A7D007A5EC0 /* DailyArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC777D1CF48A7D007A5EC0 /* DailyArticleEntity.swift */; };
 		A4CC77801CF48A7D007A5EC0 /* DailyArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC777E1CF48A7D007A5EC0 /* DailyArticleModel.swift */; };
 		A4CC77821CF48B02007A5EC0 /* DailyArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4CC77811CF48B02007A5EC0 /* DailyArticleViewController.swift */; };
@@ -130,6 +131,7 @@
 		A469398C1CEDA5DB004A896A /* SplashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		A469398F1CEDA70B004A896A /* ControllerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerUtil.swift; sourceTree = "<group>"; };
 		A46939911CEDB866004A896A /* UserDefaultsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtil.swift; sourceTree = "<group>"; };
+		A48C039C1D16C87700361BD7 /* MyDateFormatTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyDateFormatTransform.swift; sourceTree = "<group>"; };
 		A495A46F1CFD3461003FCC42 /* GankMeizi copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GankMeizi copy-Info.plist"; path = "/Users/luxiaohui/MyData/data/github/ios/GankMeizi/GankMeizi copy-Info.plist"; sourceTree = "<absolute>"; };
 		A4CC777D1CF48A7D007A5EC0 /* DailyArticleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyArticleEntity.swift; sourceTree = "<group>"; };
 		A4CC777E1CF48A7D007A5EC0 /* DailyArticleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyArticleModel.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				A41318141CF3096C00E2FE93 /* DateUtil.swift */,
 				A41318161CF362D400E2FE93 /* ThemeUtil.swift */,
 				A4FA715D1CF9E28E009CFF9F /* ErrorTipsHelper.swift */,
+				A48C039C1D16C87700361BD7 /* MyDateFormatTransform.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				A41318171CF362D400E2FE93 /* ThemeUtil.swift in Sources */,
 				A43F41C81CF5F47E006E93D1 /* AboutViewController.swift in Sources */,
 				A4CC77821CF48B02007A5EC0 /* DailyArticleViewController.swift in Sources */,
+				A48C039D1D16C87700361BD7 /* MyDateFormatTransform.swift in Sources */,
 				A4EFF0FC1CF6BBED0066D01E /* ArticleCollectionViewCell.swift in Sources */,
 				A469398D1CEDA5DB004A896A /* SplashViewController.swift in Sources */,
 				A43F41CC1CF6976E006E93D1 /* MainTabBarViewController.swift in Sources */,

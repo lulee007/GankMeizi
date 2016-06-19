@@ -16,31 +16,47 @@ class SearchModel: BaseModel {
     
     static let sharedInstance = SearchModel()
     
+    var searchText: String
+    var items: [ArticleEntity]
+    
+    
     override init() {
+        self.searchText = ""
+        items = []
         super.init()
     }
     
-    func search(text: String) -> Observable<[(title:String,date: NSDate)]> {
-        return provider.request(GankIOService.Search(text: text))
-            .observeOn(backgroundWorkScheduler)
-            .map { (response) -> [(title:String,date: NSDate)] in
-            if let doc = Kanna.HTML(html: response.data, encoding: NSUTF8StringEncoding) {
-                // Search for nodes by XPath
-                var results: [(title:String,date: NSDate)] = []
-                for link in doc.xpath("/html/body/div[1]/div[1]/ul/li[*]/div/a") {
-                    print(link.text)
-                    print(link["href"])
-                    let dateComponents = link["href"]!.componentsSeparatedByString("/").filter{$0 != ""}
-                    let date = DateUtil.stringToNSDate(dateComponents.joinWithSeparator("-") + "Z", formatter: "yyyy-MM-ddZ")
-                    results.append((link.text!,date))
-                }
-                return results.sort({ (l, r) -> Bool in
-                    let compareResult = l.date.compare(r.date)
-                    return compareResult == NSComparisonResult.OrderedDescending
-                })
-            }
-            return []
+    func search(text: String?,category: String = "all",count: Int = 20,page: Int = 1) -> Observable<[ArticleEntity]> {
+        self.offset = count
+        if page != 1{
+            self.page = page
         }
+        if text != nil {
+            self.searchText = text!
+            items.removeAll()
+            self.page = 1
+        }
+        
+        return provider.request(GankIOService.Search(text: self.searchText,category: category,count: self.offset,page: self.page))
+            .observeOn(backgroundWorkScheduler)
+            .filterStatusCodes(200...201)
+            .observeOn(backgroundWorkScheduler)
+            .map { (response) -> [ArticleEntity] in
+                let jsonStr = String(data: response.data,encoding: NSUTF8StringEncoding)
+                let result = Mapper<BaseEntity<ArticleEntity>>().map(jsonStr!)
+                if ((result?.results) != nil){
+                    self.page = self.page + 1
+                    self.items += (result?.results!)!
+                }
+                return self.items
+                
+        }
+        
     }
     
+    
+    func reset()  {
+        self.page = 1
+        self.items.removeAll()
+    }
 }

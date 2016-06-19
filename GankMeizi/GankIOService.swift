@@ -12,7 +12,6 @@ import Moya
 class GankIO {
     static let HOST = "http://gank.io"
     static let PATH_API = "/api"
-    static let PATH_SEARCH = "/search"
     
 }
 
@@ -36,7 +35,7 @@ enum GankIOService {
     case HtmlByPage(page:Int,count:Int)
     
     // 搜索
-    case Search(text: String)
+    case Search(text: String,category: String,count: Int,page: Int)
     
 }
 
@@ -57,8 +56,8 @@ extension GankIOService: TargetType {
             return "\(GankIO.PATH_API)/history/content/day/\(year)/\(month)/\(day)"
         case .HtmlByPage(let page, let count):
             return "\(GankIO.PATH_API)/history/content/\(count)/\(page)"
-        case .Search(_):
-            return "\(GankIO.PATH_SEARCH)"
+        case .Search(let text,let category,let count,let page):
+            return "\(GankIO.PATH_API)/search/query/\(text)/category/\(category)/count/\(count)/page/\(page)"
         }
     }
     
@@ -71,8 +70,6 @@ extension GankIOService: TargetType {
     
     var parameters: [String: AnyObject]? {
         switch self {
-        case .Search(let text):
-            return ["q":text]
         default:
             return nil
         }

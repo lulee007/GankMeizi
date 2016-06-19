@@ -30,9 +30,9 @@ class ArticleEntity: Mappable {
 		who <- map["who"]
 		_id <- map["_id"]
 		desc <- map["desc"]
-		publishedAt <- (map["publishedAt"], CustomDateFormatTransform(formatString: DateUtil.DATE_FORMATTER))
+		publishedAt <- (map["publishedAt"], MyDateFormatTransform())
 		used <- map["used"]
-		createdAt <- (map["createdAt"],CustomDateFormatTransform(formatString: DateUtil.DATE_FORMATTER))
+		createdAt <- (map["createdAt"],MyDateFormatTransform())
 		url <- map["url"]
 		type <- map["type"]
 	}

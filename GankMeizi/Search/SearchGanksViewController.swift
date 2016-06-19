@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import ObjectMapper
 import Toast_Swift
+import MJRefresh
 
 class SearchGanksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -23,7 +24,7 @@ class SearchGanksViewController: UIViewController, UITableViewDelegate, UITableV
     
     let disposeBag = DisposeBag()
     
-    var results: [(title: String, date: NSDate)]?
+    var results: [ArticleEntity]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class SearchGanksViewController: UIViewController, UITableViewDelegate, UITableV
         
         configKeyboardDismissOnScroll()
         
+        SearchModel.sharedInstance.reset()
     }
     
     func configTableDataSource()  {
@@ -44,6 +46,24 @@ class SearchGanksViewController: UIViewController, UITableViewDelegate, UITableV
         
         resultsTableView.delegate = self
         resultsTableView.dataSource = self
+        
+        resultsTableView.mj_footer = MJRefreshAutoStateFooter(refreshingBlock: {
+            SearchModel.sharedInstance.search(nil)
+                .asDriver(onErrorJustReturn: [])
+                .driveNext  { (results) in
+                    
+                    self.resultsTableView.mj_footer.endRefreshing()
+                    self.results = results
+                    if self.results?.count == 0{
+                        self.view.makeToast("没有找到，换个关键词试试吧！", duration: 2, position: .Center)
+                    }
+                    self.resultsTableView.reloadData()
+                    
+                }
+                .addDisposableTo(self.disposeBag)
+            
+        })
+        resultsTableView.mj_footer.automaticallyHidden = true
         
         
         self.searchBar = UISearchBar()
@@ -64,6 +84,9 @@ class SearchGanksViewController: UIViewController, UITableViewDelegate, UITableV
                 self.results = results
                 if self.results?.count == 0{
                     self.view.makeToast("没有找到，换个关键词试试吧！", duration: 2, position: .Center)
+                }else if(results.count < SearchModel.sharedInstance.offset * SearchModel.sharedInstance.page){
+                    self.resultsTableView.mj_footer.endRefreshingWithNoMoreData()
+
                 }
                 self.resultsTableView.reloadData()
                 
@@ -103,8 +126,8 @@ class SearchGanksViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! SearchResultTableViewCell
         let entity = self.results![indexPath.item]
-        cell.title.text = entity.title
-        cell.date.text = DateUtil.nsDateToString(entity.date, formatter: "yyyy-MM-dd")
+        cell.title.text = entity.desc
+        cell.date.text = DateUtil.nsDateToString(entity.publishedAt!, formatter: "yyyy-MM-dd")
         return cell
     }
     
@@ -118,7 +141,7 @@ class SearchGanksViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let entity = self.results![indexPath.item]
-        let controller = DailyArticleViewController.buildController(entity.date)
+        let controller = WebViewController.buildControllerForArticle(entity)
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
